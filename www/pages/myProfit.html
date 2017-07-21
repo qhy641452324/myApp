@@ -1,0 +1,35 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">个人收益</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<div class="myBalanceTop">
+			<img src="img/phonebg.jpg" />
+			<div class="jiaYuanBalanceTopTitle">
+				<p class="text">个人收益（元）</p>
+				<p class="num" ng-model="consumeScore">{{consumeScore}}</p>
+				<div class="shareProfitBut">
+					<span>分享获得更多收益</span>
+					<i class="icon ion-android-share-alt"></i>
+				</div>
+			</div>
+		</div>
+		<div class="jiaYuanBalanceTopList">
+			<div class="item itemTitle">
+				<p>收益明细</p>
+			</div>
+			<div class="item itemTitle">
+				<span style="display:block;float:left;font-size:1rem;color:#333333;margin-left:2%;">客户</span>
+				<span style="display:block;float:right;font-size:1rem;color:#333333;margin-right:6%;">贡献</span>
+			</div>
+			<div class="item item-icon-right myProfitItem" ng-repeat="myProfit in userInfoList">
+				{{myProfit.contactUser}}
+				<span class="item-note">
+				      {{myProfit.userRemark}}
+				</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

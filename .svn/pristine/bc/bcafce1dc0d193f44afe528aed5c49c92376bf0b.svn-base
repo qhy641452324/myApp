@@ -1,0 +1,30 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">关于我们</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<div class="aboutUsTop" align="center">
+			<img src="img/jiayuankabig.png"/>
+			<p>家乐宝 有家真好</p>
+		</div>
+		<ion-list>
+			<a class="item item-icon-right item-myprofile item-avatar-other item-padding-public">
+				<span class="item-title" style="color: #333333;">赏个好评</span>
+				<i class="icon ion-ios-arrow-right "></i>
+			</a>
+			<a class="item item-icon-right item-avatar-other item-padding-public" ui-sref="tab.aboutJLB">
+				<span class="item-title" style="color: #333333;">关于家乐宝</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+			<a class="item item-icon-right item-avatar-other item-padding-public">
+				<span class="item-title" style="color: #333333;">用户协议</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+			<a class="item item-icon-right item-avatar-other item-padding-public">
+				<span class="item-title" style="color: #333333;">版本号</span>
+				<span class="item-note" style="color: #333333;">v1.2.7</span>
+			</a>
+		</ion-list>
+	</ion-content>
+</ion-view>

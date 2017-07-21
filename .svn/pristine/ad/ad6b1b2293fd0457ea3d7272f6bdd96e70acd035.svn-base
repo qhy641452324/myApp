@@ -1,0 +1,95 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ui-sref="tab.user"></button>
+		<h1 class="title">我的卡券</h1>
+	</ion-header-bar>
+	<ion-content>
+		<ul class="slide-tab item">
+			<li ng-class="slideIndex == 0 ? 'current':''">
+				<a ng-click="activeSlide(0)">未使用</a>
+			</li>
+			<li ng-class="slideIndex == 1 ? 'current':''">
+				<a ng-click="activeSlide(1)">已使用</a>
+			</li>
+			<li ng-class="slideIndex == 2 ? 'current':''">
+				<a ng-click="activeSlide(2)">已过期</a>
+			</li>
+		</ul>
+		<!-- / tabs -->
+		<ion-slide-box on-slide-changed="slideChanged(index)" active-slide="slideIndex" class="content" style="height:1000px;">
+			<ion-slide>
+				<ul class="cardCoupons">
+					<li class="cardCouponsItem">
+					    <img src="../img/useCard.jpg"/>
+						<div class="receipt-tag triangle1"></div>
+						<div class="receipt-tag triangle2"></div>
+						<div class="receipt-tag-words">仅剩5天</div>
+						<div class="cardCouponsContent">
+							<div class="cardCouponsContentLeft">
+							    <p class="Title">家乐宝10元现金券 x10</p>
+							    <p class="Content">1.满100可用 x10</p>
+							    <p class="Content">2.同一用户仅限使用一次</p>
+							    <p class="Content">3.可送好友，好友使用即返现5元</p>
+							</div>
+							<span class="cardCouponsContentRight">
+							  10
+							</span>
+						</div>
+						<div class="cardCouponsContentBottom">
+							 <span style="font-size:0.8rem;color: #999999;">有效期至2017-07-28</span>
+							 <span style="font-size:0.9rem;color: #FE4C40;">立即使用></span>  
+					    </div>
+					</li>
+				</ul>
+			</ion-slide>
+			<ion-slide>
+				<ul class="cardCoupons">
+					<li class="cardCouponsItem">
+					    <img src="../img/overdueCard.jpg"/>
+						<div class="receipt-tag triangle1"></div>
+						<div class="receipt-tag triangle3"></div>
+						<div class="receipt-tag-words">已使用</div>
+						<div class="cardCouponsContent">
+							<div class="cardCouponsContentLeft">
+							    <p class="Title">家乐宝10元现金券 x10</p>
+							    <p class="Content">1.满100可用 x10</p>
+							    <p class="Content">2.同一用户仅限使用一次</p>
+							    <p class="Content">3.可送好友，好友使用即返现5元</p>
+							</div>
+							<div class="cardCouponsContentRight">
+							  10
+							</div>
+						</div>
+						<div class="cardCouponsContentBottom">
+							 <span style="font-size:0.8rem;color: #999999;">有效期至2017-07-28</span>
+					    </div>
+					</li>
+				</ul>
+			</ion-slide>
+			<ion-slide>
+				<ul class="cardCoupons">
+					<li class="cardCouponsItem">
+					  <img src="../img/overdueCard.jpg"/>
+						<div class="receipt-tag triangle1"></div>
+						<div class="receipt-tag triangle3"></div>
+						<div class="receipt-tag-words">已过期</div>
+						<div class="cardCouponsContent">
+							<div class="cardCouponsContentLeft">
+							    <p class="Title">家乐宝10元现金券 x10</p>
+							    <p class="Content">1.满100可用 x10</p>
+							    <p class="Content">2.同一用户仅限使用一次</p>
+							    <p class="Content">3.可送好友，好友使用即返现5元</p>
+							</div>
+							<div class="cardCouponsContentRight">
+							   10
+							</div>
+						</div>
+						<div class="cardCouponsContentBottom">
+							 <span style="font-size:0.8rem;color: #999999;">有效期至2017-07-28</span>
+					    </div>
+					</li>
+				</ul>
+			</ion-slide>
+		</ion-slide-box>
+	</ion-content>
+</ion-view>

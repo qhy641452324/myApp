@@ -1,0 +1,53 @@
+﻿<ion-view>
+  <ion-header-bar class="search">
+    <label class="item item-input placeholder-icon" ui-sref="tab.search">
+			<i class="icon ion-ios-search-strong"></i>
+			<span>输入商品名称</span>
+		</label>
+  </ion-header-bar>
+  <ion-side-menus  class="fade-show" ng-show="pageReady">
+    <ion-side-menu-content class="shopping">
+      <ion-content scroll="true" has-bouncing="true" delegate-handle="buyContent">
+        <ion-refresher pulling-text="下拉刷新" on-refresh="buy.refresh()" ></ion-refresher>
+        <div class="list fade-show" ng-show="buy.goodsList">
+          <a class="item item-thumbnail-left item-food" ng-repeat="food in buy.goodsList track by food.idCommodity" dir-go-detail>
+            <div class="image-header">
+              <div class="image-list">
+                <img ng-src="{{::food.commodityImage}}" dir-lazy-image>
+              </div>
+            </div>
+            <div class="promotion_img" ng-style="::buy.promotionType(food);"></div>
+            <div class="text-header">
+              <h2 class="responsive-h2">{{::food.commodityName }}</h2>
+              <h3 class="responsive-h3">{{::food.commodityRemark ||'暂无介绍'}}</h3>
+              <h4 class="responsive-h4">{{::food.saleDescribe}}</h4>
+              <b class="responsive-h1" dir-price-to-fixed="{{::food.standardRetailPrice}}"></b>
+            </div>
+            <img src="img/add.png" dir-add-to-basket='buy' unit-price-str='scope.food.standardRetailPrice' 
+              id-commodity-str='scope.food.idCommodity' image-src-str='imgElement.src'></img>
+          </a>
+        </div>
+        <ion-infinite-scroll immediate-check="false" on-infinite="buy.goodsLoad()" distance="1%" ng-if="buy.initReady&&!buy.hasToTheEnd&&buy.goodsList.length">
+        </ion-infinite-scroll>
+      </ion-content>
+    </ion-side-menu-content>
+    <ion-side-menu expose-aside-when="(min-width:50px)" width="sideMenu" responsive>
+      <ion-content scroll="true" has-bouncing="true" delegate-handle="buyMenu">
+        <ion-list class="defined-menu">
+          <div ng-repeat="group in ::buy.menuData">
+            <ion-item class="defined-menu item-stable row" dir-active-group>
+              <i class="border-part"></i>
+              <i class="icon ion-ios-pricetags-outline col"></i>
+              <span class="col">{{::group.commodityNavigationName}}</span>
+            </ion-item>
+            <div class="animate-if" ng-if="buy.shownGroup === group">
+              <ion-item class="item-accordion" ng-repeat="item in ::group.tbBaseCommodityNavgiationList" dir-active-item>
+                {{::item.commodityNavigationName}}
+              </ion-item>
+            </div>
+          </div>
+        </ion-list>
+      </ion-content>
+    </ion-side-menu>
+  </ion-side-menus>
+</ion-view>

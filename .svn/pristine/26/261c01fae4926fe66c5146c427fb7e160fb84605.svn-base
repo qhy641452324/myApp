@@ -1,0 +1,15 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">商城消息</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<ul>
+			<li class="freshDynamicItem" ng-repeat="mallMessageItem in mallMessageList" ng-click="goState(mallMessageItem.commodityName)">
+				<p class="ItemTitle">{{mallMessageItem.messageTitle}}</p>
+				<img ng-src="{{mallMessageItem.messageUrl}}"/>
+				<p class="ItemBottom">{{mallMessageItem.insertTime}}</p>
+			</li>
+		</ul>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">生鲜动态</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<div class="freshDynamicDetailContent">
+			<img ng-src="{{freshDynamicDetail.dynamicImg}}"/>
+			<div class="freshDynamicDetailText">
+				<h4>{{freshDynamicDetail.dynamicTitle}}</h4>
+				<p class="staffName"><span>运营人：{{freshDynamicDetail.staffName}}</span>&nbsp;&nbsp;&nbsp;<span>{{freshDynamicDetail.creatTime}}</span></p>
+				<p>
+					{{freshDynamicDetail.dynamicContent}}
+				</p>
+			</div>
+		</div>
+		<div class="item freshDynamicDetailBottom">
+			<div class="itemImg">
+				<img ng-src="{{freshDynamicDetail.commodityImageUrl}}"/>
+			</div>
+			<div class="itemText">
+				<p style="font-size:1rem;color: #333333;">{{freshDynamicDetail.commodityName}}</p>
+				<p style="font-size:0.8rem;color: #787878;">{{freshDynamicDetail.commodityRemark}}</p>
+				<p style="font-size:0.6rem;color: #B4B4B4;">{{freshDynamicDetail.productSpecifications}}</p>
+				<p style="font-size:1rem;color: #FA4B3C;margin-top:7%;font-weight: 700;">￥{{freshDynamicDetail.standardRetailPrice}}</p>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

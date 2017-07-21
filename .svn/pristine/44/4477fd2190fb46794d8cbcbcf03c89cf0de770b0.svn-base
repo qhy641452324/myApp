@@ -1,0 +1,39 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">账户余额</h1>
+		<button class="button" style="border:0;" ui-sref="tab.useRule">使用规则</button>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<div class="myBalanceTop">
+			<img src="img/phonebg.jpg" />
+			<div class="accountBalanceTopTitle">
+				<p class="text">我的余额（元）</p>
+				<p class="num" ng-model="leftMoney">{{leftMoney}}</p>
+				<p class="totalNum" ng-model="allConsume">{{allConsume}}</p>
+			</div>
+		</div>
+		<div class="accountBalanceTopList">
+			<div class="item chartTitleTime item-icon-left item-icon-right">
+				<div class="button button-icon icon ion-ios-arrow-left" style="margin-left:20%"></div>
+				<div class="accountBalanceTime"><span>2017</span>年<span>4</span>月</div>
+				<div class="button button-icon icon ion-ios-arrow-right" style="margin-right:20%"></div>
+			</div>
+			<div id="container"></div>
+		</div>
+		<div class="accountBalanceBottomList">
+			<div class="item itemTitle">
+				账户明细
+			</div>
+			<div class="item row itemtooltip">
+				<div class="col">时间</div>
+				<div class="col">交易金额(元)</div>
+				<div class="col">备注/订单号</div>
+				<div class="col">用户名</div>
+			</div>
+			<div class="item row itemtooltip" ng-repeat="x in Array">
+				<div class="col" ng-repeat="y in x">{{y}}</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

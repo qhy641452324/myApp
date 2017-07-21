@@ -1,0 +1,22 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">支付宝充值</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<div class="wechatImg">
+			<img src="img/Alipay.png"/>
+		</div>
+		<div class="wechatContent">
+			<span>选择充值金额</span>
+			<div class="row row-wrap">
+				<div class="col col-33"  ng-repeat="x in itemsTop">
+					{{x.num}}
+				</div>
+			</div>
+		</div>
+		<div class="alipayBut sumitBut blue" ng-click="sumitAlipayPay()">
+				立即充值
+	    </div>
+	</ion-content>
+</ion-view>

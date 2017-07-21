@@ -1,0 +1,12 @@
+<ion-header-bar class="bar-light bar-border">
+	<button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+	<h1 class="title">拼团</h1>
+</ion-header-bar>
+<ion-view view-title="订单详情" class="style-grey" cache-view="false">
+	<ion-content scroll="true" has-bouncing="true">
+		<div>
+			<button style="border: 1px solid royalblue;" ng-click="payDemo.wechatPay()">微信支付</button>
+			<button style="border: 1px solid royalblue;" ng-click="payDemo.aliPay()">支付宝支付</button>
+		</div>
+	</ion-content>
+</ion-view>

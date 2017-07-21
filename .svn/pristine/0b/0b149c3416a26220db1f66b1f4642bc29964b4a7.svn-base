@@ -1,0 +1,76 @@
+<ion-view view-title="giftPay" class="giftPay">
+	<ion-header-bar>
+		<button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<p class="title">结算</p>
+	</ion-header-bar>
+	<ion-content>
+		<div class="list">
+			<a class="item item-avatar" ng-repeat="k in unfinish_b track by k.idCommodity">
+					<img ng-src="{{k.luckyFoodImg || k.foodInfo.commodityImage}}" />
+					<h2>{{k.commodityName}}</h2>
+					<p class="price">￥{{k.standardRetailPrice | number:2}}元 <b>{{k.saleDescribe || "暂无介绍"}}</b></p>
+					<div class="count-group">
+						<i ng-click="jfFoodToOrder(k.idCommodity,k)" class="icon ion-android-remove"></i>
+						<input class="countA" type="text" ng-model="k.orderNumber" disabled="disabled" />
+						<i ng-click="addFoodToOrder(k.idCommodity,k)" class="icon ion-android-add"></i>
+					</div>
+				</a>
+		</div>
+		<div class="list giftCount">
+			<a class="item item-icon-left">礼包价格<span>￥{{resultMoney*giftCount || 0 | number:2}}</span></a>
+			<a class="item item-icon-left">礼包数量<span >个</span><span ng-show="giftType==2">{{resultCount}}</span><input ng-show="giftType==0" type="text" ng-model="giftCount" /></a>
+		</div>
+		
+		
+		<!--=====================================================================================-->
+		 <div class="card ui-cart-group">
+        <div class="myBalanceList user-order">
+          <label class="item item-icon-right" on-tap="checkItem('homeMoney','dianxinPay')">
+            <img src="img/jiayuanka.png"/><span>家元支付<span dir-price-to-fixed="{{giftPay.consumeScoreCost}}"></span></span><span>，余额<span dir-price-to-fixed="{{giftPay.consumeScore}}"></span></span>
+            <label class="checkbox user-address pull-right">
+              <input type="checkbox" ng-model="giftPay.homeMoney" />
+            </label>
+          </label>
+          <label class="item item-icon-right" on-tap="checkItem('ownMoney','dianxinPay')">
+            <img src="img/zhanghuyue.png"/><span>账户余额支付<span dir-price-to-fixed="{{giftPay.priceCost}}"></span></span><span>，余额<span dir-price-to-fixed="{{giftPay.price}}"></span></span>
+            <label class="checkbox user-address pull-right">
+              <input type="checkbox"  ng-model="giftPay.ownMoney"/>
+            </label>
+          </label>
+          <label class="item item-icon-right" on-tap="checkItem('weichatPay','dianxinPay','aliPay')">
+            <img src="img/weixin.png"/><span>微信支付</span> 
+            <label class="checkbox user-address pull-right">
+              <input type="checkbox" ng-model="giftPay.weichatPay"/>
+            </label>
+          </label>
+          <label class="item item-icon-right" on-tap="checkItem('aliPay','dianxinPay','weichatPay')">
+            <img src="img/zhifubao.png"/><span>支付宝支付</span> 
+            <label class="checkbox user-address pull-right">
+              <input type="checkbox" ng-model="giftPay.aliPay" />
+            </label>
+          </label>
+        </div>
+      </div>
+		
+		<!--=====================================================================================-->
+		<div class="card gift-info">
+		  <div class="item item-divider">
+		    送礼须知
+		  </div>
+		  <a class="item">
+		    72小时内，收礼人可随时领取。<br />
+		    72小时内，收礼人可随时转发给亲朋好友。<br />
+		    72小时内收礼人未领取，未转发，礼包对应的家元，系统会自动退回到您的账户。
+		  </a>
+		</div>
+		
+		
+	</ion-content>
+	<ion-footer-bar class="bar-light bar-basket bar-giftPay">
+		<div class="gift-group">
+			<p>合计：<span class="result">￥{{resultMoney*giftCount | number:2}}</p>
+			<p></span>优惠：<span>￥{{welMoney || 0 | number:2}}</span></p>
+		</div>
+		<button class="button button-assertive" on-tap="payAll()">立即结算</button>
+	</ion-footer-bar>
+</ion-view>

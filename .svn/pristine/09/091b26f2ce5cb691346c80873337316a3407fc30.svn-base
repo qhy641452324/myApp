@@ -1,0 +1,57 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ui-sref="tab.user"></button>
+		<h1 class="title">在线充值</h1>
+	</ion-header-bar>
+	<ion-content>
+		<ul class="slide-tab item">
+			<li ng-class="slideIndex == 0 ? 'current':''">
+				<a ng-click="activeSlide(0)">账户余额充值</a>
+			</li>
+			<li ng-class="slideIndex == 1 ? 'current':''">
+				<a ng-click="activeSlide(1)">卡券充值</a>
+			</li>
+			<li ng-class="slideIndex == 2 ? 'current':''">
+				<a ng-click="activeSlide(2)">扫码充值</a>
+			</li>
+		</ul>
+		<!-- / tabs -->
+		<ion-slide-box on-slide-changed="slideChanged(index)" active-slide="slideIndex" class="content" style="height:1000px;">
+			<ion-slide>
+				<div class="wechatContent" style="margin-top:3%;border-top:1px solid #ddd;border-bottom:1px solid #ddd;">
+					<span>选择充值金额</span>
+					<div class="row row-wrap">
+						<div class="col col-33" ng-repeat="x in itemsTop">
+							{{x.num}}
+						</div>
+					</div>
+				</div>
+				<div class="sumitBut green" style="margin-top:6%;">
+					微信充值
+				</div>
+				<div class="sumitBut blue" style="margin-top:6%;">
+					支付宝充值
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<label class="item item-input inputPassWord">
+				   <input type="text" placeholder="请输入充值卡密码">
+				</label>
+				<div class="sumitBut red" style="margin-top:6%;">
+					家元卡充值
+				</div>
+				<div class="sumitBut darkBlue" style="margin-top:6%;">
+					合作卡充值
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="QrCodecontent">
+					<img src="img/saosao.png" style="width:25%;"/>
+				</div>
+				<div class="sumitBut yellow" style="margin-top:12%;">
+					扫一扫
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+	</ion-content>
+</ion-view>

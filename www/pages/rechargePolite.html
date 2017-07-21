@@ -1,0 +1,24 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">充值有礼</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<ul>
+			<li class="rechargePoliteItem" ng-repeat="rechargePolite in giftList">
+				<p class="rechargePoliteItemTitle">充值满<span>{{rechargePolite.giftName}}元</span>赠品（卡券充值除外）</p>
+				<ul>
+					<li class="rechargePoliteItemContent" ng-repeat="specialCommodityItem in rechargePolite.giftDetailList">
+						<img ng-src="{{specialCommodityItem.specialCommodity.specialCommodityImage}}" />
+						<div class="jiayuanPrice">{{specialCommodityItem.specialCommodity.commodityValue}}<span>家元</span></div>
+						<div class="jiayuanPriceOther">
+							<p class="jiayuanPriceOtherTop">{{specialCommodityItem.specialCommodity.specialCommodityName}}</p><br/>
+							<p class="jiayuanPriceOtherBot">{{specialCommodityItem.specialCommodity.commodityValue}}元/张</p>
+						</div>
+						<button ng-click="rechargeConfirmation(specialCommodityItem.idGiftDetail)">充值</button>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</ion-content>
+</ion-view>

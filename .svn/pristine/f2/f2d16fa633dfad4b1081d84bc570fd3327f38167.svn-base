@@ -1,0 +1,30 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">家元余额</h1>
+		<button class="button" style="border:0;" ui-sref="tab.useRule">使用规则</button>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<div class="myBalanceTop">
+			<img src="img/jiaYuanBalancebg.png" />
+			<div class="jiaYuanBalanceTopTitle">
+				<p class="text">我的余额（元）</p>
+				<p class="num" ng-model="consumeScore">{{consumeScore}}</p>
+			</div>
+		</div>
+		<div class="jiaYuanBalanceTopList">
+			<div class="item itemTitle">
+				<p>家元明细</p>
+			</div>
+			<div class="item itemList" ng-repeat="x in array">
+				<div class="itemLeft">
+					<h2 ng-model="itemLeftTop">{{x.itemLeftTop}}</h2>
+					<p ng-model="itemLeftBottom">{{x.itemLeftBottom}}</p>
+				</div>
+				<div class="itemRight" ng-model="itemRight">
+					<span>{{x.itemRight}}</span>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

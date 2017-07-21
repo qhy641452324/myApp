@@ -1,0 +1,183 @@
+[
+  {
+    "state": "login",
+    "paramObj": {
+      "url": "/login",
+      "templateUrl": "pages/login.html",
+      "controller": "loginCtrl",
+      "controllerUrl": "js/controller/loginCtrl.js",
+      "controllerAs": "login"
+    }
+  }, {
+    "state": "registerPhone",
+    "paramObj": {
+      "url": "/registerPhone",
+      "templateUrl": "pages/register-phone.html",
+      "controller": "registerCtrl",
+      "controllerUrl": "js/controller/registerCtrl.js",
+      "controllerAs": "register"
+    }
+  }, {
+    "state": "registerPsw",
+    "paramObj": {
+      "url": "/registerPsw",
+      "templateUrl": "pages/register-psw.html",
+      "controller": "registerCtrl",
+      "controllerUrl": "js/controller/registerCtrl.js",
+      "controllerAs": "register"
+    }
+  }, {
+    "state": "noNetwork",
+    "paramObj": {
+      "url": "/noNetwork",
+      "templateUrl": "pages/noNetwork.html"
+    }
+  }, {
+    "state": "tab",
+    "paramObj": {
+      "url": "/tab",
+      "abstract": true,
+      "templateUrl": "pages/tabs.html"
+    }
+  }, {
+    "state": "tab.home",
+    "paramObj": {
+      "url": "/home",
+      "views": {
+        "home": {
+          "templateUrl": "pages/home.html",
+          "controller": "homeCtrl",
+          "controllerUrl": "js/controller/homeCtrl.js",
+          "controllerAs": "home"
+        }
+      }
+    }
+  }, {
+    "state": "tab.buy",
+    "paramObj": {
+      "url": "/buy",
+      "views": {
+        "buy": {
+          "templateUrl": "pages/buy.html",
+          "controller": "buyCtrl",
+          "controllerUrl": "js/controller/buyCtrl.js",
+          "controllerAs": "buy"
+        }
+      }
+    }
+  }, {
+    "state": "tab.gift",
+    "paramObj": {
+      "url": "/gift",
+      "views": {
+        "gift": {
+          "templateUrl": "pages/gift.html",
+          "controller": "giftCtrl",
+          "controllerUrl": "js/controller/giftCtrl.js",
+          "controllerAs": "gift"
+        }
+      }
+    }
+  }, {
+    "state": "tab.basket",
+    "paramObj": {
+      "url": "/basket",
+      "views": {
+        "basket": {
+          "templateUrl": "pages/basket.html",
+          "controller": "basketCtrl",
+          "controllerUrl": "js/controller/basketCtrl.js",
+          "controllerAs": "basket"
+        }
+      }
+    }
+  }, {
+    "state": "tab.user",
+    "paramObj": {
+      "url": "/user",
+      "views": {
+        "user": {
+          "templateUrl": "pages/user.html",
+          "controller": "userCtrl",
+          "controllerUrl": "js/controller/userCtrl.js",
+          "controllerAs": "user"
+        }
+      }
+    }
+  }, {
+    "state": "tab.userQrCode",
+    "paramObj": {
+      "url": "/userQrCode",
+      "views": {
+        "user": {
+          "templateUrl": "pages/userQrCode.html",
+          "controller": "userQrCodeCtrl",
+          "controllerUrl": "js/controller/userQrCodeCtrl.js",
+          "controllerAs": "userQrCode"
+        }
+      }
+    }
+  }, {
+    "state": "tab.setUp",
+    "paramObj": {
+      "url": "/setUp",
+      "views": {
+        "user": {
+          "templateUrl": "pages/setUp.html"
+        }
+      }
+    }
+  }, {
+    "state": "tab.myProfile",
+    "paramObj": {
+      "url": "/myProfile",
+      "views": {
+        "user": {
+          "templateUrl": "pages/myProfile.html",
+          "controller": "myProfileCtrl",
+          "controllerUrl": "js/controller/myProfileCtrl.js",
+          "controllerAs": "myProfile"
+        }
+      }
+    }
+  }, {
+    "state": "tab.address",
+    "paramObj": {
+      "url": "/address",
+      "views": {
+        "user": {
+          "templateUrl": "pages/address.html",
+          "controller": "addressCtrl",
+          "controllerUrl": "js/controller/addressCtrl.js",
+          "controllerAs": "address"
+        }
+      }
+    }
+  }, {
+    "state": "tab.search",
+    "paramObj": {
+      "url": "/search",
+      "views": {
+        "buy": {
+          "templateUrl": "pages/search.html",
+          "controller": "searchCtrl",
+          "controllerUrl": "js/controller/searchCtrl.js",
+          "controllerAs": "search"
+        }
+      }
+    }
+  }, {
+    "state": "tab.foodDetail",
+    "paramObj": {
+      "url": "/foodDetail?idCommodity&id_load",
+      "views": {
+        "buy": {
+          "templateUrl": "pages/food_detail.html",
+          "controller": "foodDetailCtrl",
+          "controllerUrl": "js/controller/foodDetailCtrl.js",
+          "controllerAs": "foodDetail"
+        }
+      }
+    }
+  }
+]

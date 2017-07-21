@@ -1,0 +1,30 @@
+<ion-view view-title="家乐宝" class="bar-light">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">账号与安全</h1>
+	</ion-header-bar>
+	<ion-content class="content">
+		<ion-list>
+			<div class="item item-icon-right item-myprofile item-avatar-other item-padding-other" ui-sref="tab.bindPhone">
+				<span class="item-title" style="color: #333333;">手机号</span>
+				<i class="icon ion-ios-arrow-right"></i>
+				<span class="item-note">
+			                  未绑定
+			    </span>
+			</div>
+			<div class="item item-toggle  item-avatar-other item-padding-other">
+				<span class="item-title" style="color: #333333;">微信账号绑定</span>
+				<label class="toggle toggle-assertive">
+			       <input type="checkbox">
+			       <div class="track">
+			         <div class="handle"></div>
+			       </div>
+				</label>
+			</div>
+			<div class="item item-icon-right item-avatar-other item-padding-other" ng-click="editPassword()">
+				<span class="item-title" style="color: #333333;">修改登录密码</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</div>
+		</ion-list>
+	</ion-content>
+</ion-view>

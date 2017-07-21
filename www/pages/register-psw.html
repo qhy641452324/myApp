@@ -1,0 +1,38 @@
+<ion-view view-title="完善密码" class="accountBody" hide-tabs cache-view="false">
+	<ion-content >
+		<div class="login-content" dir-parent-scroll-control=".accountBody" data-relative-element=".botton-submit">
+			<a class="button button-icon icon ion-chevron-left" ui-sref="tab.home"></a>
+			<img class="logo-image" src="img/logo.png">
+		</div>		
+		<div class="list list-inset  account-type" > 
+			<form name="signinPsw" novalidate ng-submit="registerPsw.appRegister(signinPsw.$valid)">
+				<div class="list list-inset input-inner-content">
+					<label class="item item-input row signinPsw">
+				  	<div class="col col-80">
+					    <input class="top-lay form-input"   type="password" name="password" 
+					    	placeholder="请输入密码" ng-model="registerPsw.password"  dir-valid-password  required autocomplete="off" autocomplete="new-password" ng-focus="passwordOff=false" ng-blur="passwordOff=true">
+						</div>
+						<div class="col col-20">
+							<i class="icon ion-ios-close closeBtn  ng-hide" ng-show="registerPsw.password&&!passwordOff"></i>
+						</div>
+					</label>
+				</div>		
+				<div class="list list-inset input-inner-content">
+					<label class="item item-input row signinPsw" >
+				  	<div class="col col-80">
+					    <input class="top-lay form-input"   type="password" name="passwordAgain" 
+					    	placeholder="请再次输入密码" ng-model="registerPsw.passwordAgain"  dir-valid-password  required autocomplete="off" autocomplete="new-password" ng-focus="passwordAgainOff=false" ng-blur="passwordAgainOff=true">
+						</div>
+						<div class="col col-20">
+							<i class="icon ion-ios-close closeBtn  ng-hide" ng-show="registerPsw.passwordAgain&&!passwordAgainOff"></i>
+						</div>
+					</label>
+				</div>		
+				<button type="submit" class="button button-assertive button-full botton-submit" ng-disabled="signinPsw.password.$error.required||signinPsw.password.$error.phone||signinPsw.passwordAgain.$error.required||signinPsw.passwordAgain.$error.password">确定</button>
+			</form>
+		</div>
+	</ion-content>
+	<ion-footer-bar class="bar-light login-footer hide-on-keyboard-open" title="login">
+		<span class="reg-to-login" ui-sref="login">已有账号，我要登录></span>
+	</ion-footer-bar>			
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view view-title="Gift" hide-nav-bar="true">
+	<ion-content scroll="false" has-bouncing="true" class="content gift-index-background">
+		<div class="gift-ui-wrapper">
+			<div class="gift-index-top" ui-sref="tab.aboutGift"><a >神器宝典</a></div>
+			<div class="gift-index-button-box">
+				<div class="button-div">
+					<a ui-sref="tab.giftSelectGoods({giftType:2})" class="button">拼手气礼包</a>
+				</div>
+				<div class="button-div">
+					<a ui-sref="tab.giftSelectGoods({giftType:0})" class="button">普通礼包</a>
+				</div>
+				<div class="button-div">
+					<a ui-sref="tab.giftMygift" class="button button2">我的礼包</a>
+				</div>
+				<p class="t">未领取的礼包，将于72小时后发起退款</p>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

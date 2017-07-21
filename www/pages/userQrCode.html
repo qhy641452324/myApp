@@ -1,0 +1,19 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">专属二维码</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<div class="userLogoImg"><img src="img/logo.png" /></div>
+		<div class="userQrCodeContent">
+			<img ng-src="{{weichatImgUrl}}" class="weichatImg" />
+			<h5>{{userName}}</h5>
+			<p>我的专属二维码，我为家乐宝代言</p>
+			<img class="userQrCodeImg" ng-src="{{userQrCodeImgUrl}}" />
+			<p>请使用微信扫描或分享此二维码</p>
+			<button class="button button-block" style="width:90%;margin-left:5%;background:#FB4C3D;font-size: 17px;color: #FFFFFF;" ng-click="openModal()">
+				点击分享
+			</button>
+		</div>
+	</ion-content>
+</ion-view>

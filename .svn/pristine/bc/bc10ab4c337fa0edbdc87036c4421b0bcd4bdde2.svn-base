@@ -1,0 +1,47 @@
+<ion-view view-title="家乐宝" class="bar-light">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">我的资料</h1>
+	</ion-header-bar>
+	<ion-content class="content">
+		<ion-list>
+			<a class="item item-icon-right item-avatar-other item-myprofile item-padding" ng-click="myProfileshow()">
+				<span class="item-title">头像</span>
+				<img ng-src="{{myProfile.appendUser.weichatImgUrl}}"/>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+			<a class="item item-icon-right item-myprofile item-avatar-other item-padding-other" ng-click="editUserNameShow()">
+				<span class="item-title">用户名</span>
+				<span class="item-note">
+		    	{{myProfile.appendUser.userName}}
+		    </span>
+				<i class="icon ion-ios-arrow-right "></i>
+			</a>
+			<a class="item item-icon-right item-avatar-other item-padding-other">
+				<span class="item-title" style="float: left;width:20%;">性别</span>
+				<span class="item-note">
+		     	{{myProfile.appendUser.userSex}}
+		   		</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+			<a class="item item-icon-right item-avatar-other item-padding-other">
+				<span class="item-title">会员等级</span>
+				<span class="item-note">
+		     	vip{{level}}
+		   		</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+			<a class="item item-icon-right item-myprofile item-avatar-other item-padding-other" ui-sref="tab.changePhone">
+				<span class="item-title">我的手机号</span>
+				<span class="item-note">
+		    	{{myProfile.appendUser.mobilePhone}}
+		    </span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+			<a class="item item-icon-right item-myprofile item-avatar-other item-padding-other" ng-click="getUserQrCode(myProfile.appendUser.idAppendUser,myProfile.appendUser.idUser)">
+				<span class="item-title">专属二维码</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+		</ion-list>
+	</ion-content>
+</ion-view>

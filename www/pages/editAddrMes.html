@@ -1,0 +1,44 @@
+<ion-view view-title="家乐宝" class="bar-light">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">地址信息</h1>
+	</ion-header-bar>
+	<ion-content class="bgColor">
+		<ul class="list editAddMesContent">
+			<li class="item" style="border-top:0;">
+				<span class="input-label">收货人</span>
+				<input type="text" placeholder="收货人姓名" ng-model="editAddrMes.receiveName">
+			</li>
+			<li class="item">
+				<span class="input-label ">手机号码</span>
+				<input type="text" placeholder="收货人手机号" ng-model="editAddrMes.phoneUser">
+			</li>
+			<li class="item item-icon-right">
+				<span class="input-label ">详细地址</span>
+				<div id="multiPickerInput" style="width:69%;float:right;text-align:left;line-height:40px;font-size:0.8rem;"ng-model="editAddrMes.addDescSelect" dir-address-picker>所在地区</div>
+			</li>
+			<li class="item">
+				<span class="input-label"></span>
+				<input type="text" style="margin-top:1%;" id="addDesc" placeholder="请填写详细地址" ng-model="editAddrMes.addDesc">
+			</li>
+			<li class="item">
+				<span class="input-label">地址类型</span>
+				<span class="addTypeStrBut" ng-repeat="addType in addTypeList">{{addType.value}}</span>
+			</li>
+		</ul>
+		<div class="item item-toggle editAddMesitem" style="margin-top:-3%;">
+			<span class="input-label">设为默认地址</span>
+			<label class="toggle toggle-assertive">
+			       <input type="checkbox">
+			       <div class="track">
+			         <div class="handle"></div>
+			       </div>
+			</label>
+		</div>
+		<div class="item editAddMesitem" style="margin-top:3%;">
+			<span class="input-label">地图选址</span>
+		</div>
+		<div id="allmap"></div>
+		<button class="button submitaddress" ng-click="editAddrMes.sumitMessage()">提交</button>
+	</ion-content>
+</ion-view>

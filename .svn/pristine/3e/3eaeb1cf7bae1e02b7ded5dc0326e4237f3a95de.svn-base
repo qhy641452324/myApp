@@ -1,0 +1,16 @@
+<ion-view title="groupWaiting" class="groupWaiting">
+	<ion-header-bar>
+		<button class="button button-icon ion-ios-arrow-left" ng-click-"$ionicGoBack()"></button>
+		<p class="title">待成团</p>
+	</ion-header-bar>
+	<ion-content>
+		<div class="groupEmpty" ng-hide="1">
+			<img src="img/group_empty.png"/>
+			<p>您暂时还没有拼团，快去试试吧！</p>
+			<button class="button button-block button-positive">去拼团</button>
+		</div>
+		<div class='grouoWaitingList'>
+			
+		</div>
+	</ion-content>
+</ion-view>

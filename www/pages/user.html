@@ -1,0 +1,82 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<div class="edit" ui-sref="tab.myProfile">
+			<img src="img/Combined Shape.png">
+		</div>
+		<div class="item item-image cardImg" style="background:#F5F5F5">
+			<img src="img/myhome_bg.png" />
+		</div>
+		<div class="cardTop">
+			<img class="cardTopimg" src="img/adam.jpg" />
+			<div class="cardTopVip">
+				<img src="img/star.png" />
+				<span>vip2</span>
+			</div>
+			<h5>西北有高楼</h5>
+		</div>
+		<div class="cardContent">
+			<div class="row row-wrap">
+				<div class="col" ui-sref="tab.MyBalance">
+					<p class="num">500</p>
+					<p class="text">余额（元）</p>
+				</div>
+				<div class="col">
+					<p class="num">2</p>
+					<p class="text">礼包</p>
+				</div>
+				<div class="col">
+					<p class="num">3</p>
+					<p class="text">赠品</p>
+				</div>
+				<div class="col" ui-sref="tab.MyIntegral">
+					<p class="num">266</p>
+					<p class="text">积分</p>
+				</div>
+			</div>
+		</div>
+		<div class="cardgrid">
+			<div class="row row-wrap">
+				<div class="col" ng-click="checked()" ui-sref="tab.userOrder" >
+					<img src="img/order.png" />
+					<p>我家订单</p>
+				</div>
+				<div class="col" ng-click="checked()" ui-sref="tab.myAccount">
+					<img src="img/account.png" />
+					<p>我家账户</p>
+				</div>
+				<div class="col" ng-click="clickAddress()">
+					<img src="img/address.png" style="margin-bottom:5%;margin-top:-5%;"/>
+					<p>地址管理</p>
+				</div>
+			</div>
+			<div class="row row-wrap">
+				<div class="col" ng-click="checked()" ui-sref="tab.myProfit">
+					<img src="img/profit.png" />
+					<p>我的收益</p>
+				</div>
+				<div class="col" ng-click="checked()" ui-sref="tab.share">
+					<img src="img/share.png" />
+					<p>分享有礼</p>
+				</div>
+				<div class="col" ng-click="checked()">
+					<img src="img/integral.png" style="margin-bottom:9%;margin-top:4%;"/>
+					<p>积分会员</p>
+				</div>
+			</div>
+			<div class="row  row-wrap">
+				<div class="col" ng-click="checked()" ui-sref="tab.userFeedback">
+					<img src="img/userfeedback.png"/>
+					<p>用户反馈</p>
+				</div>
+				<div class="col" ng-click="checked()" ui-sref="tab.cardCoupons">
+					<img src="img/cardCoupons.png" / style="margin-bottom:9%;margin-top:4%;">
+					<p>我的卡劵</p>
+				</div>
+				<div class="col" ng-click="checked()" ui-sref="tab.setUp">
+					<img src="img/setup.png" />
+					<p>设置</p>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-view view-title="家乐宝" class="bar-light">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">设置</h1>
+	</ion-header-bar>
+	<ion-content class="content">
+		<ion-list>
+			<a class="item item-icon-right item-myprofile item-avatar-other item-padding-other"  ui-sref="tab.accountSecurity">
+				<span class="item-title" style="color: #333333;">账号与安全</span>
+				<i class="icon ion-ios-arrow-right "></i>
+			</a>
+			<a class="item item-icon-right item-avatar-other item-padding-other">
+				<span class="item-title" style="color: #333333;">清除缓存</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+			<a class="item item-icon-right item-myprofile item-avatar-other item-padding-other"  ui-sref="tab.customerHelp">
+				<span class="item-title" style="color: #333333;">客服与帮助</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+			<a class="item item-icon-right item-avatar-other item-padding-other" ui-sref="tab.aboutUs">
+				<span class="item-title" style="color: #333333;">关于我们</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+		</ion-list>
+		<div class="button button-block" ng-click="loginOff()" style="border-radius: 0;border-left:0;border-right:0;font-size: 16px;color: #333333;">
+		  注销登录
+		</div>
+	</ion-content>
+</ion-view>

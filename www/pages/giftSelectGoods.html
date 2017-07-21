@@ -1,0 +1,109 @@
+<ion-view view-title="selectGoods" class="selectGoods">
+	<dir-tab-slide-box tab="0">
+		<ion-header-bar class="bar-light">
+			<button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+			<p class="title">{{titleType}}礼包</p>
+		</ion-header-bar>
+		<div class="tsb-icons">
+			<div class="tsb-ic-wrp">
+				<a href="javascript:;" class="active">礼包推荐</a>
+				<a href="javascript:;">自选礼包</a>
+			</div>
+		</div>
+		<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)" class="full-slide" delegate-handle="detailPageSlide" bounce="false">
+			<ion-slide class="content-slide">
+				<ion-scroll class="luckList" id="list" delegate-handle="slide1Scroll" bottom-handle="slide1BottomScroll" srcoll="true" has-bouncing="true" draggable-slide save-instance='1'>
+					<figure id="figure" ng-repeat="k in recommendList">
+						<figcapotion class="name">{{k.commodityName}}</figcapotion>
+						<img ng-src="{{k.luckyFoodImg}}" />
+						<p class="info">{{k.commodityRemark}}</p>
+						<p class="price"><span>￥</span>{{k.standardRetailPrice | number:2}}</p>
+						<div class="count-group">
+							<a class="reduce" ng-click="jfFoodToOrder(k.idCommodity,k)">-</a>
+							<input class="count" type="text" ng-model="k.number" disabled="disabled"/>
+							<a class="plus" ng-click="addFoodToOrder(k.idCommodity,k)">+</a>
+						</div>
+					</figure>
+				</ion-scroll>
+			</ion-slide>
+			<ion-slide class="content-slide">
+				<ion-side-menus class="fade-show" ng-show="pageReady">
+					<ion-side-menu-content class="shopping">
+						<ion-content scroll="true" has-bouncing="true" delegate-handle="buyContent">
+							<ion-refresher pulling-text="下拉刷新" on-refresh="giftSelectGoods.refresh()"></ion-refresher>
+							<div class="list fade-show" ng-show="giftSelectGoods.goodsList">
+								<a class="item item-thumbnail-left item-food" ng-repeat="food in giftSelectGoods.goodsList track by food.idCommodity" item-render-buffer="5" dir-go-detail="1">
+									<div class="image-header">
+										<div class="image-list">
+											<img ng-src="{{::food.commodityImage}}" lazy-image>
+										</div>
+									</div>
+									<div class="promotion_img" ng-style="::giftSelectGoods.promotionType(food);"></div>
+									<div class="text-header">
+										<h2 class="responsive-h2">{{::food.commodityName }}</h2>
+										<h3 class="responsive-h3">{{::food.commodityRemark ||'暂无介绍'}}</h3>
+										<h4 class="responsive-h4">{{::food.saleDescribe}}</h4>
+										<b class="responsive-h1" price-to-fixed="{{::food.standardRetailPrice}}">{{::food.standardRetailPrice}}</b>
+									</div>
+									<img src="img/add.png" class="add" ng-click="addfood(food.idCommodity,food)" dir-add-to-basket='buy' unit-price-str='scope.food.standardRetailPrice' id-commodity-str='scope.food.idCommodity' image-src-str='imgElement.src'>
+								</a>
+							</div>
+							<ion-infinite-scroll immediate-check="false" on-infinite="giftSelectGoods.goodsLoad()" distance="1%" ng-if="giftSelectGoods.initReady&&!giftSelectGoods.hasToTheEnd&&giftSelectGoods.goodsList.length">
+							</ion-infinite-scroll>
+						</ion-content>
+					</ion-side-menu-content>
+					<ion-side-menu expose-aside-when="(min-width:50px)" width="sideMenu" responsive id="left">
+						<ion-content scroll="true" has-bouncing="true" delegate-handle="buyMenu">
+							<ion-list class="defined-menu">
+								<div ng-repeat="group in ::giftSelectGoods.menuData">
+									<ion-item class="defined-menu item-stable" active-group>
+										<i class="icon ion-ios-pricetags-outline"></i>
+										<span>{{::group.commodityNavigationName}}</span>
+									</ion-item>
+									<div class="animate-if" ng-if="giftSelectGoods.shownGroup === group">
+										<ion-item class="item-accordion" ng-repeat="item in ::group.tbBaseCommodityNavgiationList" active-item>
+											{{::item.commodityNavigationName}}
+										</ion-item>
+									</div>
+								</div>
+							</ion-list>
+						</ion-content>
+					</ion-side-menu>
+				</ion-side-menus>
+			</ion-slide>
+		</ion-slide-box>
+	</dir-tab-slide-box>
+	<div class="model" ng-class="{true: 'active', false:''}[isActive]" ng-click="isShow()">
+	</div>
+	<div class="ccdd" ng-class="{true: 'active', false:''}[isActive]">
+		<ion-content>
+			<div class="list">
+				<div ng-show="isKong" class="isKong">
+					<img src="img/basket_empty.png">
+					<p ng-show="isKong">购物车是空的</p>
+				</div>
+				
+				<a class="item item-avatar" ng-repeat="k in unfinish_a track by k.idCommodity">
+					<img ng-src="{{k.luckyFoodImg || k.foodInfo.commodityImage}}" />
+					<h2>{{k.commodityName}}</h2>
+					<p class="price">{{k.standardRetailPrice | number:2}}元 <b>{{k.saleDescribe || "暂无介绍"}}</b></p>
+					<div class="count-group">
+						<i ng-click="jfFoodToOrder(k.idCommodity,k)" class="icon ion-android-remove"></i>
+						<input class="countA" type="text" ng-model="k.orderNumber" disabled="disabled" />
+						<i ng-click="addFoodToOrder(k.idCommodity,k)" class="icon ion-android-add"></i>
+					</div>
+				</a>
+			</div>
+		</ion-content>
+	</div>
+	<ion-footer-bar class="bar-light bar-basket">
+		<div class="gift-group">
+			<span ng-show="resultCount" class="giftCount">{{resultCount}}</span>
+			<img src="img/copy.png" class="buy" ng-click="isShow()" />
+			<p>合计：<span class="result">￥{{resultMoney | number:2}}</p>
+			<p></span>共<span>{{resultCount}}</span>件</p>
+
+		</div>
+		<button class="button button-assertive" ui-sref="tab.giftPay">立即结算</button>
+	</ion-footer-bar>
+</ion-view>

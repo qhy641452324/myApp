@@ -1,0 +1,28 @@
+
+<ion-view view-title="订单详情" class="style-grey groupIndex" cache-view="false">
+	<ion-header-bar class="bar-light bar-border">
+		<button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">拼团</h1>
+		<button class="button button-icon " ng-click="goWaiting()">待成团</button>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true">
+		<ion-list>
+			<div ng-hide="groupIndex.groupList" style="position: absolute;width:100%;top: 50%;">
+				<h3 style="width:100%;text-align: center;">获取列表失败，请重试</h3>
+			</div>
+			<ion-item ng-repeat="k in groupIndex.groupList">
+				<div  class="groupDetail">
+					<div class="img">
+						<img ng-src="{{k.groupImg}}"/>
+					</div>
+					<h3 class="title">{{k.groupTitle}}</h3>
+					<p class="groupInfo">{{k.groupDescribe}}</p>
+					<div>
+						<p><span class="price"><b>￥</b>{{k.groupTotalAmount | number:2}}</span><s class="orderTotalAmount">原价 ￥{{k.orderTotalAmount | number:2}}</s><button class="button button-assertive goGroup" on-tap="getGroup(k.idFightGroup)">开团&gt;</button></p>
+						
+					</div>
+				</div>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

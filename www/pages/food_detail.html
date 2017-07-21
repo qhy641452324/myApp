@@ -1,0 +1,96 @@
+﻿<ion-view view-title="foodDetail" cache-view="false">
+  <dir-tab-slide-box tab="0">
+    <ion-header-bar class="bar-light">
+      <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"  ></button>
+      <div class="tsb-icons">
+        <div class="tsb-ic-wrp food-detail">
+          <a href="javascript:;" class="active" ng-bind="foodDetail.idLoad?'礼品':'商品'"></a>
+          <a href="javascript:;">详情</a>
+        </div>
+      </div>
+      <button class="button button-icon ion-android-share-alt share-btn-size"></button>
+    </ion-header-bar>
+    <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)" class="full-slide" delegate-handle="detailPageSlide"  bounce="false">
+      <ion-slide class="content-slide" >
+        <ion-scroll delegate-handle="slide1Scroll" bottom-handle="slide1BottomScroll"  srcoll="true" has-bouncing="true" dir-draggable-slide dir-vertical-pager save-instance='1' >
+          <ion-slide-box class="goods-slide" id="food-img-slide" auto-play="false" does-continue="true" stop-propagation='true' delegate-handle="goodsSlide" dir-current-index-listener='slideIndexOfFoodDetail'>
+            <ion-slide ng-repeat="item in foodDetail.goodsImg" class="food-detail-slide slider-slide-image zoom-slide" dir-should-have-load="{{::item.commodityImageUrl}}" ></ion-slide>
+          </ion-slide-box>
+          <div class="main-container " id="your-interest">
+            <div class="foods-simple-info">
+              <h2 class="responsive-h1">{{::foodDetail.foodInfo.commodityName}}</h2>
+              <p class="responsive-h3">{{foodDetail.foodInfo.commodityRemark||'暂无介绍'}}</p>
+              <b class="responsive-h0" dir-decimal-price data-decimal="{{::foodDetail.priceIntDecimal}}" original-price="foodDetail.foodInfo.standardRetailPrice" scope-name="foodDetail">{{::foodDetail.priceInt}}</b>
+              <div class="row">
+                <a class="tab-item">
+                  <i class="icon iconfont icon-chandi"></i>
+                  {{::foodDetail.foodInfo.productionPlace}}
+                </a>
+                <a class="tab-item">
+                  <i class="icon iconfont icon-guige"></i>
+                  {{::foodDetail.foodInfo.saleDescribe}}
+                </a>
+                <a class="tab-item">
+                  <i class="icon iconfont icon-cunchufangshi"></i>
+                  {{::foodDetail.foodInfo.storageType}}
+                </a>
+              </div>            
+            </div>
+            <div class="index-commnon-module food-detail" >
+              <div class="row row-60">
+                <span class="col col-25"><i class="mdash first"></i></span>
+                <span class="col col-min"><i class="diams icon iconfont icon-lingxing"></i></span>
+                <span class="col col-50 module-title">大家都在买</span>
+                <span class="col col-min"><i class="diams icon iconfont icon-lingxing"></i></span>
+                <span class="col col-25"><i class="mdash last"></i></span>
+              </div>
+              <div class="carousel-floor food-detail">
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                    <ion-slides options="foodDetail.sliderOptions" slider="data.slider" show-pager="foodDetail.sliderOptions.showPager">
+                      <ion-slide-page ng-repeat="food in ::foodDetail.carouselMock">
+                        <div class="image-header">
+                          <img ng-src="{{::food.commodityImage}}" dir-lazy-image/>
+                        </div>
+                        <h2 class="responsive-h2 ellipsis" ng-bind="::food.commodityName"></h2>
+                        <b class="responsive-h0" dir-decimal-price data-decimal="{{::food.priceIntDecimal}}" original-price="food.standardRetailPrice" scope-name="food">{{::food.priceInt}}</b>
+                      </ion-slide-page>
+                    </ion-slides> 
+                  </div>
+                </div>
+              </div>      
+            </div>
+            <span class="page-action-warning food-detail">--上拉查看图文详情，释放呈现--</span>
+            <div class="full-size style-grey ng-hide" ></div>
+          </div>
+          <div id="bottom-pager-action-text" ><span class="page-action-warning food-detail">--下拉查看商品信息，释放呈现--</span>
+            <img ng-src="{{::foodDetail.foodInfo.commodityDescriptionImage}}" class="full-size " />
+            <div class="full-size style-grey" ></div>
+          </div>
+          
+        </ion-scroll>
+      </ion-slide>
+      <ion-slide  class="content-slide image-content">
+        <ion-scroll srcoll="true" has-bouncing="true" > 
+          <img  class="img-text-describe"  ng-src="{{::foodDetail.foodInfo.commodityDescriptionImage}}"/>
+        </ion-scroll>
+      </ion-slide>
+    </ion-slide-box>
+  </dir-tab-slide-box>
+  <ion-footer-bar class="bar-light bar-basket">
+    <div class="basket-group">
+      <a class="button button-clear" dir-sub-from-basket='foodDetail'  unit-price-str='scope.foodDetail.foodInfo.standardRetailPrice'
+         unit-number-str='scope.totalNumber' id-commodity-str='scope.foodDetail.foodInfo.idCommodity' >-</a> 
+      <div class="content-center">
+        <i class="icon iconfont icon-cailanzi">
+          <span class="boot-badge" ng-if="totalNumber>0" >{{totalNumber<99?totalNumber:'...'}}</span>
+        </i>
+      </div>
+      <a class="button button-clear" dir-add-to-basket='foodDetail' 
+        unit-price-str='scope.foodDetail.foodInfo.standardRetailPrice'
+         unit-number-str='scope.totalNumber' id-commodity-str='scope.foodDetail.foodInfo.idCommodity'
+          image-src-str='$imgElement.scope().item.commodityImageUrl'>+</a>      
+    </div>
+    <button class="button button-assertive" ui-sref="tab.basket">前往菜篮子</button>
+  </ion-footer-bar>
+</ion-view>

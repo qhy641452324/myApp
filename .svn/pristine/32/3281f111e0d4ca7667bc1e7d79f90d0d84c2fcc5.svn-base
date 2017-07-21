@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>还去菜场买菜？你out了，快来家乐宝试试吧！</title>
+<meta name="author" content="pb1010wayne@sina.com" />
+<meta name="keywords" content="家乐宝" />
+<meta name="description" content="家乐宝，比布农场" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /> 
+<meta http-equiv="Pragma" content="no-cache" /> 
+<meta http-equiv="Expires" content="0" />
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="x-rim-auto-match" content="none">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" type="text/css" href="css/base.css" />
+<link rel="stylesheet" type="text/css" href="css/share.css" />
+<script type="text/javascript" src="js/common/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/share.js?v=20161020s"></script>
+<script type="text/javascript" src="http://api.youziku.com/webfont/FastJS/yzk_E6D290DDC641F277?time=1001"></script>
+<style>
+	html,body{height:100%}
+</style>
+</head>
+<body>
+ <div class="hide"><img src="img/home1.jpg" class="width-auto"/></div>
+	<div class="ui-warper share-other-containter" >
+	  <div id="btn1" class="btn" onclick="doShare()">
+			<span class="word">点击分享</span>
+		</div>
+		<div id="btn2" class="btn" onclick="getShare()">
+			<span class="word">我要种菜</span>
+		</div>
+	</div>
+  <div id="share_leader_pic" class="share-leader-pic ui-share-box" hidden="true" ><img src="img/share_guide.png" /></div>
+	<script type="text/javascript"> 
+	$youziku.load(".word", "ebc113516546462fab00dd5d14659e18", "minijianshaoer"); 
+	$youziku.draw();
+</script>
+</body>
+</html>

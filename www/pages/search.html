@@ -1,0 +1,51 @@
+<ion-view view-title="User" hide-nav-bar="true" cache-view="false">
+  <ion-header-bar class="bar-light has-border search">
+    <form name="searchForm" class="full-size" ng-submit="search.searchAction(searchForm.$invalid)" novalidate>
+      <label class="item-input full-size text-left search">
+        <i class="icon iconfont ion-ios-search-strong search"></i>
+        <input type="search" class="search" placeholder="搜索" name="searchBar" required ng-model="search.searchBarValue"/>
+        <i class="icon ion-close-circled closeBtn ng-hide" ng-show="search.searchBarValue" on-tap="search.searchBarValue=''"></i>
+      </label>
+    </form>
+     <button class="search button button-clear" on-tap="$ionicGoBack()">取消</button>
+  </ion-header-bar>
+  <ion-content class="content style-white" >
+    <div class=" ng-hide" ng-show="!search.searchBarValue||modelSearchCtrl.$$lastModel!=search.searchBarValue">
+      <div class="search search-history">
+        <div class="search title">历史搜索</div>
+        <ul class="search search-history-list">
+          <li ng-repeat="item in search.searchHistory" on-tap="search.searchByHistory(item)">{{::item}}</li>
+        </ul>
+      </div>
+      <div class="search search-push">
+        <div class="search title">热门推荐</div>
+        <ul class="search search-push-list"  dir-fade-in-on-load>
+          <li ng-repeat="food in search.hotOrderDetail"  dir-go-detail class="animate-list" dir-on-finish-render >{{::food.commodityName}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="list ng-hide" ng-show="search.goodsList&&search.searchBarValue&&modelSearchCtrl.$$lastModel==search.searchBarValue" >
+      <a class="item item-thumbnail-left item-food margin-justify animate-list" ng-repeat="food in search.goodsList" dir-go-detail >
+        <div class="image-header">
+          <div class="image-list">
+            <img ng-src="{{::food.commodityImage}}" dir-lazy-image>
+          </div>
+        </div>
+        <div class="promotion_img" ng-style="::search.promotionType(food);"></div>
+        <div class="text-header">
+          <h2 class="responsive-h2">{{::food.commodityName }}</h2>
+          <h3 class="responsive-h3">{{::food.commodityRemark ||'暂无介绍'}}</h3>
+          <h4 class="responsive-h4">{{::food.saleDescribe}}</h4>
+          <b class="responsive-h1" dir-price-to-fixed="{{::food.standardRetailPrice}}"></b>
+        </div>
+        <img src="img/add.png" dir-add-to-basket='other' unit-price-str='scope.food.standardRetailPrice' id-commodity-str='scope.food.idCommodity' use-simple="true"></img>
+      </a>
+    </div>
+    <div ng-show="search.searchBarValue&&modelSearchCtrl.$$lastModel==search.searchBarValue&&!search.goodsList.length" class="fade-show ng-hide">
+      <div class="full-size noNetworkContent">
+        <img src="img/search.png" />
+        <p>抱歉，未搜索到您想要的商品。</p>
+      </div>
+    </div>    
+  </ion-content>
+</ion-view>

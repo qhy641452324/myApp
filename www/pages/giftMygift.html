@@ -1,0 +1,88 @@
+<ion-view title="giftMygift" class="giftMygift">
+	<dir-tab-slide-box tab="0">
+		<ion-header-bar class="bar-light">
+			<button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+			<p class="title">我的礼包</p>
+		</ion-header-bar>
+		<div class="tsb-icons">
+			<div class="tsb-ic-wrp">
+				<a href="javascript:;" class="active">已收礼包</a>
+				<a href="javascript:;">已发礼包</a>
+			</div>
+
+		</div>
+		<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)" class="full-slide" delegate-handle="detailPageSlide" bounce="false">
+			<ion-slide class="content-slide">
+				<ion-scroll delegate-handle="slide1Scroll" bottom-handle="slide1BottomScroll" srcoll="true" has-bouncing="true">
+					
+					<div class="peopleInfo" style="background: #F5F5F5;" ng-show="getLuckListReceive.luckySenders" >
+						<img ng-src="{{::getLuckListReceive.appendUser.weichatImgUrl}}" alt="" /> 
+						<p ng-show="count" class="userName">{{userName}}共收到礼包</p>
+						<div class="giftCount">
+							<p class="count">&nbsp;{{count}} <br /><span>礼包</span></p>
+							<p class="best">&nbsp;{{best || 0}} <br /><span>手气最佳</span></p>
+						</div>
+						<p ng-hide="count" class="userName">您还没有收到过礼包呐</p>
+						<div class="yearInput">
+							<input class="giftYear" disabled="disabled" type="text" placeholder="2017" ng-model="gift.recAllYears" name="recYear" id="recAllYears" dir-single-picker data-bind-json="allYears" >
+							<i class="icon ion-chevron-down"></i>
+						</div>
+						
+					</div>
+					
+					<div class="list" ng-show="getLuckListReceive">
+						<a class="item item-avatar" ng-repeat="k in getLuckListReceive.luckySenders">
+							<img ng-src="{{k.weichatImgUrl}}">
+							<h2>{{k.userName}}</h2>
+							<p>{{ k.receiveTimeStr | limitTo:10 |limitTo:-5}}</p>
+							<div>
+								<p class="money">{{k.luckySingleMoney | number:2}}元</p>
+								<p>{{k.XXX || "已使用"}}</p>
+							</div>
+						</a>
+					</div>
+					
+					<div class="listEmpty" ng-hide="getLuckListReceive">
+						暂无礼包记录
+					</div>
+				</ion-scroll>
+			</ion-slide>
+			<ion-slide class="content-slide sendGiftList">
+				<ion-scroll srcoll="true" has-bouncing="true" class="parent">
+					
+					<div class="peopleInfo" style="background: #F5F5F5;" ng-show="getLuckListReceive.luckySenders" >
+						<img ng-src="{{::getLuckListReceive.appendUser.weichatImgUrl}}" alt="" /> 
+						<p ng-show="count" class="userName">{{userName}}共发出礼包<span>{{getLuckListSend.length || 0}}</span>份</p>
+						
+						<p ng-hide="count" class="userName">您还没有收到过礼包呐</p>
+						<div class="yearInput">
+							<input class="giftYear" disabled="disabled" type="text" placeholder="2017" ng-model="gift.sendAllYears" name="sendYear" id="sendAllYears" dir-single-picker data-bind-json="allYears" >
+							<i class="icon ion-chevron-down"></i>
+						</div>
+						
+					</div>
+					
+					<div class="list" ng-show="getLuckListSend.length!=0">
+						<a class="item item-avatar" ng-repeat="k in getLuckListSend" ui-sref="tab.giftDetails({idLucky:k.idLucky})">
+							<!--<img ng-src="{{k.weichatImgUrl}}">-->
+							<h2 ng-show="k.luckyType==0">普通礼包</h2>
+							<h2 ng-show="k.luckyType==2">拼手气礼包</h2>
+							<p>{{ k.insertTimeStr | limitTo:10 |limitTo:-5}}</p>
+							<div>
+								<p class="money">{{k.luckyTotalMoney | number:2}}元</p>
+								<p>{{k.luckyPickNum}}/{{k.luckyTotalNum}}</p>
+							</div>
+							<i class="icon ion-chevron-right"></i>
+						</a>
+					</div>
+					<div ng-hide="getLuckListSend.length!=0" style="height: 100px;background:#f5f5f5;"></div>
+				<div class="listEmpty" ng-hide="getLuckListSend.length!=0">
+						暂无礼包记录
+				</div>	
+				</ion-scroll>
+				
+			</ion-slide>
+		</ion-slide-box>
+	</dir-tab-slide-box>
+	
+</ion-view>

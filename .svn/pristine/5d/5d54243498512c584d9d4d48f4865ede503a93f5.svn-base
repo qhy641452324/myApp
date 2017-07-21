@@ -1,0 +1,109 @@
+<ion-view view-title="MyIntegral" class="MyIntegral">
+	<dir-tab-slide-box tab="0">
+		<ion-header-bar class="bar-light">
+			<button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+			<p class="title">积分明细</p>
+			<div class="button button-icon icon ion-ios-help-outline" ui-sref="tab.AboutIntegral"  href="#/AboutIntegral"></div>
+		</ion-header-bar>
+		<div class="tsb-icons">
+			<img src="img/phonebg.jpg" />
+			<div class="MyIntegralTop">
+				<p class="text">当前积分</p>
+				<p class="num">799</p>
+			</div>
+			<div class="tsb-ic-wrp">
+				<a href="javascript:;" class="active">全部明细</a>
+				<a href="javascript:;">收入明细</a>
+				<a href="javascript:;">支出明细</a>
+			</div>
+		</div>
+		<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)" class="full-slide" delegate-handle="detailPageSlide" bounce="false">
+			<ion-slide class="content-slide">
+				<ion-scroll delegate-handle="slide1Scroll" bottom-handle="slide1BottomScroll" srcoll="true" has-bouncing="true" >
+					<!--这是全部列表-->
+					<div class="list">
+						<a class="item item-avatar" href="javascript:;">
+							<span>+5</span>
+							<h2>每日签到奖励</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a>
+						<a class="item item-avatar" href="javascript:;">
+							<span>+10</span>
+							<h2>消费-完成订单16080043452323</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a>
+
+						<a class="item item-avatar" href="javascript:;">
+							<span>+10</span>
+							<h2>每日签到奖励</h2>
+							<p>2017-03-02 14:25:25</p>
+						</a>
+						<a class="item item-avatar" href="javascript:;">
+							<span>+79</span>
+							<h2>消费-完成订单15583023892437</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a>
+
+						<a class="item item-avatar" href="javascript:;">
+							<span>+10</span>
+							<h2>每日签到奖励</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a>
+						<a class="item item-avatar" href="javascript:;">
+							<span>+104</span>
+							<h2>消费-完成订单16080043452323</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a>
+
+						<a class="item item-avatar" href="javascript:;">
+							<span>+10</span>
+							<h2>每日签到奖励</h2>
+							<p>2017-03-02 14:25:25</p>
+						</a>
+						<a class="item item-avatar" href="javascript:;">
+							<span>+69</span>
+							<h2>消费-完成订单15583023892437</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a>
+						<a class="item item-avatar" href="javascript:;">
+							<span>+69</span>
+							<h2>消费-完成订单15583023892437</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a><a class="item item-avatar" href="javascript:;">
+							<span>+69</span>
+							<h2>消费-完成订单15583023892437</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a>
+						<a class="item item-avatar" href="javascript:;">
+							<span>+69</span>
+							<h2>消费-完成订单15583023892437</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a><a class="item item-avatar" href="javascript:;">
+							<span>+69</span>
+							<h2>消费-完成订单15583023892437</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a><a class="item item-avatar" href="javascript:;">
+							<span>+69</span>
+							<h2>消费-完成订单15583023892437</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a><a class="item item-avatar" href="javascript:;">
+							<span>+69</span>
+							<h2>消费-完成订单15583023892437</h2>
+							<p>2017-03-03 14:25:25</p>
+						</a>
+					</div>
+				</ion-scroll>
+			</ion-slide>
+			<ion-slide class="content-slide">
+				<ion-scroll srcoll="true" has-bouncing="true">
+					这是收入明细列表
+				</ion-scroll>
+			</ion-slide>
+			<ion-slide class="content-slide">
+				<ion-scroll srcoll="true" has-bouncing="true">
+					这是支出明细列表
+				</ion-scroll>
+			</ion-slide>
+		</ion-slide-box>
+	</dir-tab-slide-box>
+</ion-view>

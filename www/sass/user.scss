@@ -1,0 +1,1587 @@
+$blue: #0076FF;
+$red: #FE4C40;
+$green: #00BE09;
+$black: #333333;
+$gray: #B4B4B4;
+$othergray: #666666;
+$bgcolor: #F5F5F5; //user
+.content {
+    background: $bgcolor;
+    .edit {
+        position: absolute;
+        z-index: 99999;
+        left: 89%;
+        top: 19%;
+        width: 7%;
+        img {
+            width: 100%;
+        }
+    }
+    .cardImg {
+        border: 0;
+    }
+    .cardTop {
+        width: 94%;
+        border: 0;
+        position: absolute;
+        top: 19%;
+        margin-left: 3%;
+        z-index: 9999;
+        .cardTopVip {
+            width: 16%;
+            height: 18%;
+            box-shadow: 0 0 2px #F7584B;
+            margin-left: 42%;
+            position: absolute;
+            top: 52%;
+            border-radius: 23px;
+            background: #FFFFFF;
+            img {
+                display: block;
+                width: 40%;
+                float: left;
+                margin-top: -3%;
+                margin-left: -3%;
+            }
+            span {
+                display: block;
+                width: 50%;
+                float: left;
+                text-transform: uppercase;
+                font-size: 12px;
+                color: #FE4C40;
+                margin-left: 5%;
+            }
+        }
+        .cardTopimg {
+            width: 20%;
+            border-radius: 50%;
+            margin-left: 40%;
+        }
+        h5 {
+            text-align: center;
+            margin-top: 3%;
+        }
+    }
+    .cardContent {
+        width: 94%;
+        height: 80%;
+        background: #FFFFFF;
+        margin-left: 3%;
+        position: absolute;
+        top: 40%;
+        z-index: 999;
+        box-shadow: 0 0 10px rgba(169,169,169,0.26);
+        .row-wrap {
+            width: 100%;
+            margin-top: 21%;
+            .col {
+                text-align: center;
+                .num {
+                    font-size: 20px;
+                    color: #FE4C40;
+                }
+                .text {
+                    font-size: 11px;
+                    color: #333333;
+                }
+            }
+        }
+    }
+    .cardgrid {
+        width: 94%;
+        margin-left: 3%;
+        padding: 0;
+        border: 0;
+        background: #FFFFFF;
+        position: absolute;
+        top: 126%;
+        box-shadow: 0 0 10px rgba(169,169,169,0.26);
+        .row-wrap {
+            padding: 2%;
+            .col {
+                text-align: center;
+                padding: 8% 5% 3%;
+                color: $black;
+                font-size: 14px;
+                img {
+                    width: 35%;
+                    margin-bottom: 6%;
+                }
+            }
+            .col.activated {
+                background-color: #F5F5F5;
+            }
+        }
+    }
+}
+//noNetwork
+.noNetworkContent {
+    background: #FFFFFF;
+    margin-top: 30%;
+    img {
+        width: 80%;
+        margin-left: 10%;
+    }
+    p {
+        font-size: 15px;
+        color: $gray;
+        text-align: center;
+    }
+    button {
+        width: 90%;
+        height: 46px;
+        border: 1px solid #FB4C3D;
+        border-radius: 3px;
+        color: $red;
+        margin-left: 5%;
+        font-size: 17px;
+        margin-top: 10%;
+        background: #FFFFFF;
+    }
+}
+.item-avatar-other {
+    img {
+        position: absolute;
+        top: 5px;
+        right: 14%;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+    .item-title {
+        color: $othergray;
+        font-size: 16px;
+    }
+    .item-note {
+        color: $black;
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    .icon {
+        right: 9px;
+        font-size: 20px;
+        color: $othergray;
+    }
+}
+.item-myprofile {
+    margin-top: 10px;
+}
+.item-padding {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.item-padding-other {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.item-padding-public {
+    padding: 0.7rem;
+}
+/*底部弹窗更改样式*/
+.platform-android .action-sheet-backdrop {
+    -webkit-transition: background-color 150ms ease-in-out;
+    transition: background-color 150ms ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+.platform-android .action-sheet-backdrop.active {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.platform-android .action-sheet-wrapper {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    -webkit-transition: all cubic-bezier(0.36, 0.66, 0.04, 1) 500ms;
+    transition: all cubic-bezier(0.36, 0.66, 0.04, 1) 500ms;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+.platform-android .action-sheet-up {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.platform-android .action-sheet {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: auto;
+    z-index: 11;
+    overflow: hidden;
+}
+.platform-android .action-sheet .button {
+    display: block;
+    padding: 1px;
+    width: 100%;
+    border-radius: 0;
+    border-color: #d1d3d6;
+    background-color: transparent;
+    color: #007aff;
+    font-size: 21px;
+}
+.platform-android .action-sheet .button:hover {
+    color: #007aff;
+}
+.platform-android .action-sheet .button.destructive {
+    color: #ff3b30;
+}
+.platform-android .action-sheet .button.destructive:hover {
+    color: #ff3b30;
+}
+.platform-android .action-sheet .button.active,
+.platform-android .action-sheet .button.activated {
+    box-shadow: none;
+    border-color: #d1d3d6;
+    color: #007aff;
+    background: #e4e5e7;
+}
+.platform-android .action-sheet-has-icons .icon {
+    position: absolute;
+    left: 16px;
+}
+.platform-android .action-sheet-title {
+    padding: 16px;
+    color: #8f8f8f;
+    text-align: center;
+    font-size: 13px;
+}
+.platform-android .action-sheet-group {
+    margin-bottom: 8px;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.platform-android .action-sheet-group .button {
+    border-width: 1px 0 0 0;
+}
+.platform-android .action-sheet-group .button:first-child:last-child {
+    border-width: 0;
+}
+.platform-android .action-sheet-options {
+    background: #f1f2f3;
+}
+.platform-android .action-sheet-cancel .button {
+    font-weight: 500;
+}
+.platform-android .action-sheet-open {
+    pointer-events: none;
+}
+.platform-android .action-sheet-open.modal-open .modal {
+    pointer-events: none;
+}
+.platform-android .action-sheet-open .action-sheet-backdrop {
+    pointer-events: auto;
+}
+.platform-android .action-sheet .action-sheet-title,
+.platform-android .action-sheet .button {
+    text-align: center;
+}
+.platform-android .action-sheet-cancel {
+    display: block;
+}
+//userQrCode
+.userLogoImg {
+    width: 54%;
+    margin-left: 23%;
+    margin-top: 41px;
+    img {
+        width: 100%;
+    }
+}
+.userQrCodeContent {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding-bottom: 31px;
+    .weichatImg {
+        width: 20%;
+        margin-left: 40%;
+        margin-top: 20px;
+        border-radius: 50%;
+    }
+    h5 {
+        text-align: center;
+    }
+    p {
+        font-size: 12px;
+        color: #999999;
+        text-align: center;
+    }
+    .userQrCodeImg {
+        width: 60%;
+        margin-left: 20%;
+    }
+}
+//MyBalance
+.myBalanceTop {
+    height: 19.8%;
+    position: relative;
+    img {
+        width: 100%;
+    }
+    .myBalanceTopTitle {
+        position: absolute;
+        top: 2.5%;
+        left: 3.7%;
+        color: #FFFFFF;
+        .text {
+            font-size: 0.1rem;
+        }
+        .num {
+            font-size: 3.0rem;
+        }
+    }
+    .jiaYuanBalanceTopTitle {
+        width: 80%;
+        position: absolute;
+        top: 16%;
+        color: #FFFFFF;
+        margin-left: 10%;
+        .text {
+            text-align: center;
+            font-size: 0.1rem;
+        }
+        .num {
+            text-align: center;
+            font-size: 3.1rem;
+        }
+    }
+    .accountBalanceTopTitle {
+        width: 80%;
+        position: absolute;
+        top: 12%;
+        color: #FFFFFF;
+        margin-left: 10%;
+        .text {
+            text-align: center;
+            font-size: 0.1rem;
+        }
+        .num {
+            margin-top: 5%;
+            text-align: center;
+            font-size: 3.1rem;
+        }
+        .totalNum {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 9%;
+        }
+    }
+    .myBalanceTopContent {
+        width: 100%;
+        height: 41%;
+        position: absolute;
+        bottom: 3%;
+        background: rgba(247,82,69,0.4);
+        color: #FFFFFF;
+        padding: 0;
+        .col {
+            height: 75%;
+            text-align: center;
+            border-right: 1px solid #F5F5F5;
+            margin-top: 1%;
+            vertical-align: middle;
+            .num {
+                font-size: 0.9rem;
+                margin: 0;
+            }
+            .text {
+                font-size: 0.4rem;
+                margin: 0;
+            }
+        }
+    }
+}
+.myBalanceList {
+    margin-top: 1.5%;
+    .itemTitle {
+        font-size: 16px;
+        color: #666666;
+    }
+    .item {
+        height: 6%;
+        img {
+            width: 6%;
+            border: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        span {
+            font-size: 16px;
+            color: #333333;
+            margin-left: 2.1%;
+        }
+        .icon {
+            color: #CACACA;
+        }
+    }
+}
+.jiaYuanBalanceTopList {
+    margin-top: 2%;
+    .itemTitle {
+        padding: 9px;
+        p {
+            font-size: 1rem;
+            color: #666666;
+        }
+    }
+    .itemList {
+        padding: 9px;
+        .itemLeft {
+            float: left;
+            p {
+                color: #999999;
+            }
+        }
+        .itemRight {
+            float: right;
+            span {
+                font-size: 1.2rem;
+                line-height: 2.5rem;
+            }
+        }
+    }
+}
+//MyIntegral
+.MyIntegral {
+    .tsb-icons {
+        position: relative;
+        img {
+            margin-top: 30px;
+            width: 110%;
+        }
+        .tsb-ic-wrp {
+            width: 100%;
+            a {
+                width: 33.333%;
+                line-height: 2.8rem;
+            }
+            a.active:after {
+                content: '';
+                width: 20px;
+                height: 4px;
+                background-color: #FE4C40;
+                display: block;
+                position: absolute;
+                left: 50%;
+                margin-left: -10px;
+                bottom: 2px;
+            }
+        }
+    }
+    .MyIntegralTop {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        margin-top: -30px;
+        color: #fff;
+        p {
+            text-align: center;
+        }
+        .num {
+            font-size: 3rem;
+        }
+    }
+    .tabbed-slidebox ion-scroll .scroll {
+        margin-top: 20px;
+        padding-top: 0;
+        a {
+            padding: 0 10px;
+            text-align: left;
+            min-height: 40px;
+            h2 {
+                width: 180px;
+                font-size: 1rem;
+                line-height: 2rem;
+                margin-top: 5px;
+            }
+            span {
+                float: right;
+                line-height: 60px;
+            }
+        }
+    }
+}
+//AboutIntegral
+.AboutIntegral {
+    .bar-light {
+        border-bottom: 1px solid #E2E2E2;
+    }
+    .content {
+        background: #fff;
+        padding: 0 10px;
+        h3 {
+            line-height: 3rem;
+        }
+        h4 {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        p {
+            color: #696969;
+            font-size: 0.8rem;
+        }
+    }
+}
+//IntegralShop
+.IntegralShop {
+    .tabbed-slidebox {
+        .scroll {
+            padding: 0;
+            .row {
+                padding: 0;
+                img {
+                    width: 140px;
+                }
+                .col {
+                    padding: 20px;
+                    border-bottom: 1px solid #EFEFEF;
+                    position: relative;
+                    p {
+                        position: absolute;
+                        top: 50%;
+                        left: 20%;
+                        margin-top: -20px;
+                        color: #fff;
+                        .count {
+                            font-size: 3rem;
+                        }
+                    }
+                    div {
+                        padding: 0 5px;
+                        .integral {
+                            float: left;
+                            color: #707070;
+                        }
+                        .change {
+                            float: right;
+                            color: #FE574C;
+                        }
+                    }
+                }
+                .col:first-child {
+                    border-right: 1px solid #EFEFEF;
+                }
+            }
+        }
+    }
+    .bar-light {
+        border-bottom: 1px solid #EFEFEF;
+    }
+    .tsb-icons {
+        border-bottom: 1px solid #EFEFEF;
+        .tsb-ic-wrp {
+            margin-top: 45px;
+            a {
+                font-size: 1rem;
+                width: 50%;
+                line-height: 2.6rem;
+            }
+            a.active:after {
+                width: 16px;
+                left: 50%;
+                margin-left: -8px;
+                bottom: 0;
+            }
+        }
+    }
+}
+//wefare
+.welfare {
+    img {
+        width: 100%;
+    }
+}
+//weChatPay
+.wechatImg {
+    width: 100%;
+    background: #FFFFFF;
+    margin-top: 3%;
+    border-top: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
+    padding-top: 2.7%;
+    padding-bottom: 2.7%;
+    img {
+        display: block;
+        width: 16%;
+        margin-left: 41%;
+    }
+}
+.wechatContent {
+    width: 100%;
+    background: #FFFFFF;
+    padding-top: 3%;
+    padding-left: 3%;
+    span {
+        font-size: 0.9rem;
+        color: #666666;
+    }
+    .row-wrap {
+        width: 100%;
+        height: 100%;
+        .col {
+            max-width: 30%;
+            text-align: center;
+            border: 1px solid #D1D1D1;
+            margin-right: 3%;
+            margin-bottom: 3%;
+            padding: 5%;
+            border-radius: 2px;
+            font-size: 1rem;
+            color: #333333;
+        }
+        .weChatChecked {
+            border: 1px solid #1BAC19;
+            color: #1BAC19;
+        }
+        .alipayChecked {
+            border: 1px solid #009FE8;
+            color: #009FE8;
+        }
+        .eleJiaYuanChecked {
+            border: 1px solid #FE4C40;
+            color: #FE4C40;
+        }
+    }
+}
+.sumitBut {
+    width: 86%;
+    margin-left: 7%;
+    font-size: 1rem;
+    color: #FFFFFF;
+    padding: 13px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #FFFFFF;
+}
+.green {
+    background: #1BAC19;
+}
+.blue {
+    background: #009FE8;
+}
+.red {
+    background: #FE4C40;
+}
+.darkBlue {
+    background: #0054A6;
+}
+.bgColor {
+    background: #F5F5F5;
+}
+.yellow {
+    background: #F2A801;
+}
+.weChatBut {
+    margin-top: 72%;
+}
+.alipayBut {
+    margin-top: 72%;
+}
+.eleJiaYuanBut {
+    margin-top: 10%;
+}
+.redColor {
+    color: $red!important;
+}
+.eleJiaYuanTop {
+    width: 100%;
+    background: #FFFFFF;
+    border-top: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
+    margin-top: 3%;
+    padding-left: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    .icon {
+        width: 1.5em;
+        height: 2em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+        float: left;
+        margin-top: 1%;
+        color: #FE4C40;
+    }
+    input {
+        margin-left: 3%;
+        width: 68%;
+        border: 0;
+        float: left;
+        font-size: 0.9rem;
+        color: #B4B4B4;
+    }
+    .eleBut {
+        width: 20%;
+        font-size: 0.9rem;
+        color: #666666;
+        padding: 0;
+        border: 1px solid #B4B4B4;
+    }
+}
+.useRuleContent {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    padding-top: 1.3rem;
+    p {
+        color: #666666;
+    }
+}
+.userInstructions {
+    margin-top: 8%;
+    font-size: 0.9rem;
+    color: #999999;
+    padding: 0 1.2rem;
+    p {
+        line-height: 0.9rem;
+    }
+}
+.accountBalanceTopList {
+    margin-top: 2%;
+    .chartTitle {
+        text-align: center;
+        padding: 9px;
+        font-size: 1rem;
+        color: #666666;
+    }
+    .chartTitleTime {
+        color: $red;
+        padding: 9px;
+        .icon {
+            color: $red;
+        }
+        .accountBalanceTime {
+            width: 20%;
+            margin-left: 40%;
+            text-align: center;
+        }
+    }
+}
+.accountBalanceBottomList {
+    margin-top: 3%;
+    .itemTitle {
+        text-align: center;
+        padding: 9px;
+    }
+    .itemtooltip {
+        text-align: center;
+        font-size: 0.6rem;
+        color: #999999;
+        padding: 0;
+        col {
+            text-align: center;
+        }
+    }
+}
+.inputPassWord {
+    margin-top: 3%;
+    border-bottom: 1px solid #ddd;
+    padding: 6px;
+    input {
+        border: 0;
+        font-size: 0.9rem;
+        color: #B4B4B4;
+        margin-bottom: 0;
+        padding-left: 1.1rem;
+    }
+}
+.slide-tab {
+    width: 100%;
+    background: #ffffff;
+    border-right: 0;
+    border-top: 0;
+    padding: 2px;
+}
+.slide-tab li {
+    width: 33%;
+    float: left;
+    text-align: center;
+    line-height: 39px;
+}
+.slide-tab a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+    color: #333333;
+}
+.current a {
+    color: $red;
+    font-weight: 600;
+}
+.QrCodecontent {
+    width: 100%;
+    img {
+        display: block;
+        height: 14%;
+        margin-top: 24%;
+        margin-left: 37.7%;
+    }
+}
+//addressManagement
+.addManContent {
+    margin-top: 3%;
+    padding: 0;
+    .addManTopItem {
+        padding: 3%;
+        .userMes {
+            color: #333333;
+        }
+        .addressTypeStr {
+            color: #FE4C40;
+        }
+        .addressStr {
+            color: #151515;
+        }
+    }
+    .addManbotItem {
+        border-top: 1px solid #DDDDDD;
+        .addIoc-pull-left {
+            margin-top: 1%;
+            input {
+                width: 1.1rem;
+                height: 1.1rem;
+            }
+            input:after {
+                width: 0.8rem;
+                height: 0.3rem;
+                left: 16%;
+            }
+        }
+        .isdefault {
+            position: absolute;
+            font-size: 0.8rem;
+            color: #B4B4B4;
+            bottom: 7%;
+        }
+        .editBut {
+            padding: 0 1rem;
+            margin-left: 49%;
+            margin-top: 1%;
+            font-size: 0.9rem;
+            color: #B4B4B4;
+        }
+        .detelBut {
+            padding: 0 1rem;
+            margin-top: 1%;
+            font-size: 0.9rem;
+            color: #B4B4B4;
+        }
+    }
+}
+.addressManagementFooter {
+    width: 90%;
+    margin-left: 5%;
+    background: #FE4C40;
+    border-radius: 3px;
+    margin-bottom: 5%;
+    h1 {
+        width: 100%;
+        font-size: 1rem;
+        color: #FFFFFF;
+        text-align: center;
+        line-height: 30px;
+    }
+}
+.submitaddress {
+    width: 90%;
+    margin-left: 5%;
+    bottom: 12%;
+    position: fixed;
+    background: #FE4C40!important;
+    color: #FFFFFF!important;
+}
+//editAddMes
+.editAddMesContent {
+    .item {
+        padding: 0;
+        height: 2.5rem;
+        span {
+            width: 30%;
+            font-size: 0.9rem;
+            color: #333333;
+            text-indent: 1rem;
+            display: inline-block;
+        }
+        input {
+            width: 70%;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 0;
+            border: 0;
+        }
+        .icon {
+            font-size: 1.2rem;
+            color: #CACACA;
+        }
+        .addTypeStrBut {
+            width: 15%;
+            border: 1px solid #DDDDDD;
+            margin-right: 2%;
+            border-radius: 4px;
+        }
+    }
+}
+.editAddMesitem {
+    padding: 2px;
+    span {
+        font-size: 0.9rem;
+        color: #333333;
+        text-indent: 1rem;
+    }
+    .toggle {
+        position: absolute;
+        top: 4px;
+    }
+}
+.borderColor {
+    border: $red;
+}
+#allmap {
+    width: 100%;
+    height: 400px;
+    z-index: 999;
+}
+//myProfit
+.shareProfitBut {
+    width: 58%;
+    border: 1px solid #FFFFFF;
+    border-radius: 50px;
+    margin-left: 21%;
+    margin-top: 6%;
+    span {
+        width: 80%;
+        display: inline-block;
+        text-align: center;
+        font-size: 0.9rem;
+        float: left;
+        vertical-align: middle;
+    }
+    i {
+        width: 20%;
+        font-size: 1.3rem;
+        text-align: center;
+    }
+}
+.myProfitItem {
+    padding: 9px;
+    font-size: 0.9rem;
+    color: #333333;
+    text-indent: 0.5rem;
+    span {
+        color: #333333;
+        font-size: 0.9rem;
+        margin-right: 9%;
+        color: $red;
+    }
+    i {
+        font-size: 1.2rem!important;
+        color: #CACACA;
+    }
+}
+//askForInvoice
+.askForInvoiceTitle {
+    margin-top: 3%;
+    width: 100%;
+    background: #FFFFFF;
+    padding: 3%;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 0.9rem;
+    color: #999999;
+    span {
+        font-size: 0.9rem;
+        color: #151515;
+    }
+}
+.askForInvoiceContent {
+    .item {
+        padding: 0;
+        height: 2.8rem;
+        .input-label {
+            width: 30%;
+            font-size: 0.9rem;
+            color: #333333;
+            text-indent: 1rem;
+            display: inline-block;
+        }
+        .item-title {
+            width: 30%;
+            font-size: 0.9rem;
+            color: #333333;
+            text-indent: 1rem;
+            display: inline-block;
+            line-height: 2.8rem;
+        }
+        .item-note {
+            width: 70%;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 0;
+            line-height: 2.8rem;
+            color: #333333;
+        }
+        input {
+            width: 70%;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 0;
+            border: 0;
+        }
+        .icon {
+            font-size: 1.2rem;
+            color: #CACACA;
+        }
+    }
+}
+.askForInvoiceBut {
+    width: 90%;
+    margin-left: 5%;
+    background: #FE4C40!important;
+    color: #FFFFFF!important;
+    z-index: 9999;
+    margin-top: 5%;
+}
+.askForInvoiceBot {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 13%;
+    font-size: 0.9rem;
+    color: #999999;
+}
+//invoiceHistory
+.invoiceHistoryItem {
+    margin-top: 3%;
+    border-bottom: 1px solid #DDDDDD;
+    position: relative;
+    .itemTop {
+        padding: 7px;
+        span {
+            display: inline-block;
+            width: 65%;
+            font-size: 0.9rem;
+            color: #333333;
+        }
+        button {
+            width: 15%;
+            font-size: 0.9rem;
+            color: #666666;
+            background: #FFFFFF;
+            border: 1px solid #B4B4B4;
+            padding: 0.2rem;
+            border-radius: 3px;
+            z-index: 9999;
+        }
+    }
+    .contentList {
+        background: #FFFFFF;
+        padding: 0.7rem;
+        font-size: 0.9rem;
+        color: #666666;
+        span {
+            margin-left: 6%;
+            color: #333333;
+        }
+    }
+    .receipt-tag {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    .triangle1 {
+        width: 0;
+        height: 0;
+        border-left: 2.7rem solid transparent;
+        border-bottom: 2.7rem solid #fff;
+    }
+    .triangle2 {
+        width: 0;
+        height: 0;
+        border-left: 1.3rem solid transparent;
+        border-bottom: 1.3rem solid #fff;
+    }
+    .receipt-tag-words {
+        position: absolute;
+        right: 0;
+        bottom: 0.3rem;
+        transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        color: #fff;
+        font-size: 0.3rem;
+    }
+    .red-tag {
+        border-bottom-color: $red;
+    }
+    .green-tag {
+        border-bottom-color: #7ED321;
+    }
+    .gray-tag {
+        border-bottom-color: #bdbdbd;
+    }
+}
+//rechargePolite
+.rechargePoliteItem {
+    margin-top: 3%;
+    background: #FFFFFF;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 0.4rem;
+    .rechargePoliteItemTitle {
+        border-bottom: 1px solid #DDDDDD;
+        text-indent: 0.6rem;
+        padding: 0.4rem 0;
+        font-size: 0.9rem;
+        color: #666666;
+    }
+    .rechargePoliteItemContent {
+        padding: 0.9rem 0.7rem;
+        position: relative;
+        img {
+            width: 33%;
+            float: left;
+            display: inline-block;
+        }
+        .jiayuanPrice {
+            position: absolute;
+            left: 2rem;
+            top: 2.7rem;
+            font-size: 3rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            span {
+                font-size: 0.5rem;
+            }
+        }
+        .jiayuanPriceOther {
+            margin-top: 0.5rem;
+            text-indent: 1rem;
+            .jiayuanPriceOtherTop {
+                font-size: 1rem;
+                color: #333333;
+            }
+            .jiayuanPriceOtherBot {
+                font-size: 0.8rem;
+                color: #787878;
+            }
+        }
+        button {
+            background: #FE4C40;
+            border-radius: 4px;
+            position: absolute;
+            bottom: 1.1rem;
+            right: 0.6rem;
+            border: 0;
+            color: #FFFFFF;
+            padding: 0.3rem 1.9rem;
+            z-index: 9999;
+        }
+    }
+}
+//rechargeConfirmation
+.rechConmitem {
+    padding: 9px;
+    margin-top: 3%;
+    font-size: 1rem;
+    color: #00001C;
+    span {
+        color: $red;
+    }
+}
+//freshDynamic
+.freshDynamicItem {
+    margin-top: 3%;
+    background: #FFFFFF;
+    padding: 1.5% 2.7%;
+    .ItemTitle {
+        font-size: 1.1rem;
+        color: #333333;
+        text-align: center;
+    }
+    img {
+        width: 100%;
+    }
+    .ItemBottom {
+        font-size: 0.7rem;
+        color: #999999;
+    }
+}
+//freshDynamicDetail
+.freshDynamicDetailContent {
+    background: #FFFFFF;
+    img {
+        width: 100%;
+    }
+    .freshDynamicDetailText {
+        padding-left: 1.2rem;
+        h4 {
+            font-size: 1.3rem;
+        }
+        .staffName {
+            font-size: 0.8rem;
+            color: #999999;
+        }
+    }
+}
+.freshDynamicDetailBottom {
+    border-top: 1px solid #E8E8E8;
+    border-bottom: 0;
+    .itemImg {
+        width: 30%;
+        float: left;
+        img {
+            width: 100%;
+        }
+    }
+    .itemText {
+        width: 60%;
+        float: left;
+        margin-left: 3%;
+    }
+}
+//bindPhone
+.bindPhone {
+    width: 90%;
+    margin-left: 5%;
+    color: #999999;
+    margin-top: 31px;
+    position: relative;
+    input {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        color: #999999;
+    }
+    .verificationCode {
+        border-left: 1px solid #999999;
+        position: absolute;
+        right: 4%;
+        top: 62%;
+        z-index: 9999;
+        font-size: 1rem;
+        color: #999999;
+        padding-left: 3%;
+    }
+    .changePhoneCode {
+        border-left: 1px solid #999999;
+        position: absolute;
+        right: 4%;
+        top: 76%;
+        z-index: 999;
+        font-size: 1rem;
+        color: #999999;
+        padding-left: 3%;
+    }
+    .editPasswordCode {
+        border-left: 1px solid #999999;
+        position: absolute;
+        right: 4%;
+        top: 16%;
+        z-index: 999;
+        font-size: 1rem;
+        color: #999999;
+        padding-left: 3%;
+    }
+}
+.bindPhoneBut {
+    width: 90%!important;
+    margin-left: 5%;
+    background: #FB4C3D;
+    font-size: 17px;
+    color: #FFFFFF;
+}
+.alertText {
+    font-size: 0.9rem;
+    color: #C8C8C8;
+    text-align: center;
+}
+//cardCoupons
+.cardCoupons {
+    .cardCouponsItem {
+        margin-top: 6%;
+        width: 90%;
+        margin-left: 5%;
+        position: relative;
+        height: 10rem;
+        min-height: 156px;max-height: 170px;overflow: hidden;border-radius: 6px;
+        img {
+          min-height: 156px;max-height: 170px;height: 100%;width: initial !important;
+        }
+        .receipt-tag {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .triangle1 {
+            width: 0;
+            height: 0;
+            border-bottom: 3.1rem solid transparent;
+            border-left: 3.1rem solid #E36B61;
+        }
+        .triangle2 {
+            width: 0;
+            height: 0;
+            border-left: 1.5rem solid #F79E97;
+            border-bottom: 1.5rem solid transparent;
+        }
+        .triangle3 {
+            width: 0;
+            height: 0;
+            border-left: 1.5rem solid #B4B4B4;
+            border-bottom: 1.5rem solid transparent;
+        }
+        .receipt-tag-words {
+            position: absolute;
+            left: -0.2rem;
+            top: 0.5rem;
+            transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            color: #fff;
+            font-size: 0.3rem;
+        }
+        .cardCouponsContent {
+            width: 100%;
+            position: absolute;
+            top: 13%;
+            left: 10%;
+            color: #FFFFFF;
+            .cardCouponsContentLeft {
+                width: 60%;
+                float: left;
+                line-height: 12px;
+                .Title {
+                    font-size: 1.1rem;
+                    margin-bottom: 8%;
+                }
+                .Content {
+                    font-size: 0.8rem;
+                }
+            }
+            .cardCouponsContentRight {
+                width: 27%;
+                float: left;
+                font-size: 3.5rem;
+                line-height: 4rem;
+                text-align: right;
+                vertical-align: middle;
+            }
+            .cardCouponsContentRight:before{
+              content: '\00a5';font-size: 1.8rem;margin-right: -0.7rem;
+            }
+        }
+        .cardCouponsContentBottom {
+            position: absolute;
+            bottom: 6%;
+            text-indent: 0.5rem;
+        }
+    }
+}
+//customerHelp
+.customerHelpContent {
+    margin-top: 3%;
+    .customerHelpContentItem {
+        .itemShow {
+            font-size: 0.9rem;
+            padding: 0.7rem;
+            color: #333333;
+            i {
+                color: #CACACA;
+                font-size: 1.5rem;
+            }
+        }
+        .itemHide {
+            font-size: 0.9rem;
+            color: #999999;
+            padding-top: 0.8rem;
+            padding-left: 0.6rem;
+        }
+    }
+}
+.customerPhone {
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 3px;
+    background: #FE4C40!important;
+    color: #FFFFFF!important;
+    margin-bottom: 10%;
+    .customerPhoneBut {
+        width: 100%;
+        background: #FE4C40!important;
+        color: #FFFFFF!important;
+        border: 0;
+        font-size: 1rem;
+        i {
+            margin-right: 2%;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+        }
+    }
+}
+.customerPhoneBottom {
+    width: 100%;
+    position: absolute;
+    bottom: -80%;
+    font-size: 0.7rem;
+    color: #999999;
+    text-align: center;
+}
+//userFeedback
+.userFeedbacktextarea {
+    margin-top: 3%;
+    width: 100%;
+    height: 8rem;
+    border: 0;
+}
+.userFeedbackBut {
+    width: 90%;
+    margin-left: 5%;
+    background: $red;
+    border-radius: 3px;
+    color: #FFFFFF;
+}
+//aboutUs
+.aboutUsTop {
+    img {
+        width: 19%;
+        margin-top: 13%;
+    }
+    p {
+        text-align: center;
+        margin-bottom: 8%;
+        font-size: 1rem;
+        color: #333333;
+    }
+}
+//aboutJLB
+.aboutJLB img {
+    width: 100%;
+    left: 50%;
+}
+//messageCenter
+.messageCenterContent {
+    .item {
+        margin-top: 3%;
+        border: 0;
+        position: relative;
+        img {
+            border-radius: 0;
+        }
+        .time {
+            position: absolute;
+            right: 3%;
+            top: 18%;
+            font-size: 0.9rem;
+            color: #999999;
+        }
+        p {
+            font-size: 0.9rem;
+            color: #999999;
+        }
+        .unRead {
+            width:0.5rem;
+            height: 0.5rem;
+            background: $red;
+            position: absolute;
+            left:13%;
+            border-radius: 50%;
+        }
+    }
+}
+//bibuMessage
+.bibuMessageContent {
+    .time {
+        display: block;
+        width: 18%;
+        opacity: 0.15;
+        background: #000000;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        color: #FFFFFF;
+        text-align: center;
+        margin-left: 40%;
+        margin-top: 5%;
+    }
+    .bibuMessageCard {
+        width: 90%;
+        margin-left: 5%;
+        background: #FFFFFF;
+        border: 1px solid #E6E6E6;
+        border-radius: 4px;
+        padding: 0.8rem;
+        margin-top: 3%;
+        .text {
+            width: 94%;
+            text-overflow: clip;
+            white-space: pre-wrap;
+            border-top: 1px solid #E6E6E6;
+            padding-top: 3%;
+        }
+        i {
+            font-size: 1.4rem;
+            color: #999999;
+            margin-top: 3%;
+            vertical-align: middle;
+        }
+    }
+}
+//fightGroupsMessage
+.fightGroupsMessageCard {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    border-radius: 4px;
+    .fightGroupstext {
+        width: 100%;
+        text-overflow: clip;
+        white-space: pre-wrap;
+        border-top: 1px solid #E6E6E6;
+        padding-top: 3%;
+    }
+    .groupBottom {
+        border-top: 1px solid #E6E6E6;
+    }
+}
+//feedbackRecord
+.feedbackRecordItem {
+    margin-top: 5%;
+    width: 90%;
+    margin-left: 5%;
+    padding: 0.4rem;
+    background: #FFFFFF;
+    border-radius: 4px;
+    .user {
+        font-size: 0.8rem;
+        color: #666666;
+    }
+    .customService {
+        position: relative;
+        font-size: 0.8rem;
+        color: #999999;
+        background: #F5F5F5;
+        padding: 0.5rem;
+        margin-top: 5%;
+    }
+    .triangle {
+        position: absolute;
+        top: -0.5rem;
+        left: 0.9rem;
+        width: 0;
+        height: 0;
+        border-left: 1.2rem solid transparent;
+        border-top: 1.2rem solid #F5F5F5;
+        transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+}

@@ -1,0 +1,47 @@
+<ion-view view-title="IntegralShop" class="IntegralShop">
+	
+	<dir-tab-slide-box tab="0">
+		<ion-header-bar class="bar-light">
+			<button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+			<p class="title">积分商城</p>
+		</ion-header-bar>
+		<div class="tsb-icons">
+			<div class="tsb-ic-wrp">
+				<a href="javascript:;" class="active">家元卡券</a>
+				<a href="javascript:;">商品</a>
+			</div>
+		</div>
+		<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)" class="full-slide" delegate-handle="detailPageSlide" bounce="false">
+			<ion-slide class="content-slide">
+				<ion-scroll delegate-handle="slide1Scroll" bottom-handle="slide1BottomScroll" srcoll="true" has-bouncing="true">
+						<div class="row">
+							<div class="col" ng-repeat="k in peo.changeJiayuan">
+								<img ng-src="{{peo.imgUrl}}" />
+								<p><span class="count">{{k.jiayuan}}</span><span>家元</span></p>
+							  	<div>
+							  		<span class="integral">{{k.count}}积分</span>
+							  		<span class="change" ng-click="exchange(k.jiayuan)">兑换&gt;</span>
+							  	</div>
+							</div>
+						</div>
+						<div class="row">
+						  	<div class="col" ng-repeat="k in peo.changeKaquan">
+								<img ng-src="{{peo.imgUrl}}" />
+								<p><span class="count">{{k.jiayuan}}</span><span>家元</span></p>
+								<p>{{}}</p>
+							  	<div>
+							  		<span class="integral">{{k.count}}积分</span>
+							  		<span class="change" ng-click="exchange(k.jiayuan)">兑换&gt;</span>
+							  	</div>
+							</div>
+						</div>
+				</ion-scroll>
+			</ion-slide>
+			<ion-slide class="content-slide">
+				<ion-scroll srcoll="true" has-bouncing="true">
+					这是商品列表
+				</ion-scroll>
+			</ion-slide>
+		</ion-slide-box>
+	</dir-tab-slide-box>
+</ion-view>

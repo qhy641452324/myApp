@@ -1,0 +1,24 @@
+<ion-view title="giftRedPackShare" class="giftRedPackShare">
+	<ion-header-bar>
+		<button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<p class="title">发礼包</p>
+	</ion-header-bar>
+	<ion-content>
+		<div class="shareSMS">
+			<textarea ng-model="packShare.myText" ng-change="log()" class="shareSMSContent" name="SMS" rows="6" placeholder="输入对好友的祝福" maxlength="20"   ></textarea>
+			<p>{{packShare.surLength || 20}}/20</p>
+		</div>
+			<div class="list">
+				<a class="item item-avatar" ng-repeat="k in unfinish_a track by k.idCommodity">
+					<img ng-src="{{k.luckyFoodImg || k.foodInfo.commodityImage}}" />
+					<h2>{{k.commodityName}}</h2>
+					<p class="price">￥{{k.standardRetailPrice | number:2}} <b>{{k.saleDescribe || "暂无介绍"}}</b>	<span class="orderNumber">x{{k.orderNumber}}</span></p>
+				</a>
+			</div>
+	</ion-content>
+	<ion-footer-bar>
+		<button class="button button-block button-assertive" ng-click="modal.show()">
+		  发送
+		</button>
+	</ion-footer-bar>
+</ion-view>

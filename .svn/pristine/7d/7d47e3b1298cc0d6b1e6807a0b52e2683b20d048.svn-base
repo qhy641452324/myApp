@@ -1,0 +1,35 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">商城消息</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content freshDynamicDetailContent">
+		<img src="../img/freshDetail.jpg" />
+		<h4>西瓜夏了整个夏天</h4>
+		<p>运营人：西北有高楼 06-08 18:39</p>
+		<p>
+			午后，阳光很足 <br/>
+			树叶渗出点点星星的光芒 <br/>
+			远处的姑娘<br/>
+			 白色连衣裙<br/> 
+			 袅袅婷婷 <br/>
+			 阳光下皮肤宛若透明 <br/>
+			 路旁，绿叶悉悉簌簌，绕杆而上<br/>
+			  丝瓜花蕊，嫩黄<br/> 
+			  蜜蜂缓缓钻进，又钻出，振翅飞远<br/>
+			   我抬头，阳光刺眼地晃 <br/>
+			   西瓜，一扫而光，满嘴甜甜的汁液 <br/>
+			   黄昏的穿堂风，阴凉爽利 <br/>
+			   房前屋后，慵懒的气息 <br/>
+			   猫趴在屋檐下<br/>
+			   静静地整理毛发 <br/>
+			   一两辆自行车呼呼而过 <br/>
+			   逐渐远去<br/>
+			   映成了夕阳的背景<br/>
+			   远处，老太太们在练嗓<br/>
+			    张生与崔莺莺，长亭兼短亭 <br/>
+			    耳边，被风吹过的夏天<br/>
+			    西瓜夏了整个夏天
+		</p>
+	</ion-content>
+</ion-view>

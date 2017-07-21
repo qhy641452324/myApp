@@ -1,0 +1,121 @@
+require.config({
+	 baseUrl:'res/js/',
+	 paths:{
+		//xquery:'core/xQuery-1.1.0',
+		jquery:'core/jquery-1.7.2.min',
+		chart:'core/chart.min',
+		common:'common/fx.common',
+		api:'common/fx.api',
+		iscroll:'common/ui/fx.iscroll',
+		canvas:'common/ui/fx.canvas',
+		loader:'common/ui/fx.loader.min',
+		cordova:'common/ui/fx.cordova',
+		picker:'common/ui/fx.picker',
+		select:'common/ui/fx.select',
+		city:'common/ui/fx.city',
+		calendar:'common/ui/fx.calendar',
+		wxshare:'common/ui/fx.wxshare',
+		share:'common/ui/fx.share',
+		scroll:'common/ui/fx.scroll',
+		slider:'common/ui/fx.slider',
+		tab:'common/ui/fx.tab',
+		validate:'common/ui/fx.validate',
+		zoom:'common/ui/fx.zoom',
+		list:'common/ui/fx.list',
+		lock:'common/ui/fx.lock',
+		keyboard:'common/ui/fx.keyboard',
+		count:'common/ui/fx.count',
+		weichatJsApi:'common/weichatJsApi.js?t=20170310'
+	},
+	//urlArgs:'time='+Date.now(),
+	shims:{
+		common:{
+			deps:['jquery']
+		},
+		api:{
+			deps:['common']
+		},
+		zoom:{
+			deps:['slider']
+		},
+		tab:{
+			deps:['slider']
+		},
+		list:{
+			deps:['scroll']
+		},
+		picker:{
+			deps:['scroll']
+		},
+		calendar:{
+			deps:['picker']
+		},
+		city:{
+			deps:['picker']
+		},
+		select:{
+			deps:['picker']
+		},
+		weichatJsApi:{
+			deps:['jquery','common']
+		}
+	},
+	waitSeconds:0
+});
+
+window.ModeLoad={
+	set:function(){
+		document.getElementsByTagName('html')[0].style.fontSize=Math.min(document.documentElement.clientWidth,640)/20+'px';	
+		window.onresize=arguments.callee;
+	}(),
+	init:function(name,callback){
+		this.loop(this,0,this.deep(name),function(M){
+			//document.body.removeChild(document.getElementById('mt-loading-rotate'));
+			var box=M(document.body).preventDefault().children('div').eq(0);
+			box.find('a').stopPropagation();
+			M.browser.isWeixin?M.use.init(['wxshare'],function(){
+				callback.call(box,M);
+			}):callback.call(box,M);
+		},[]);
+	},
+	loop:function(context,index,list,callback,args){
+		require([list[index]],function(){
+			args.push(arguments[0]);
+			++index==list.length?callback.apply(context,args):context.loop(context,index,list,callback,args);	
+		},function(error){
+			var failedId;
+			if(failedId=error.requireModules&&error.requireModules[0]){
+				try{	
+					context.loop(context,index,list.join('|').replace(failedId,context.exec(/.js/g.test(failedId)?failedId:require.toUrl(failedId)+'.js')).split('|'),callback,args);
+				}catch(e){};
+			};
+		});	
+	},
+	deep:function(name){
+		return this.get([],name,require.s.contexts._.config.shims).reverse();	
+	},
+	get:function(arr,name,shim){
+		for(var i=0;i<name.length;i++){
+			arr.push(name[i]);
+			if(shim[name[i]]&&shim[name[i]].deps){
+				arguments.callee(arr,shim[name[i]].deps.concat(name.slice(i+1)),shim);
+				break;
+			};
+		};
+		return arr;
+	},
+	exec:function(name){
+		return /\?/g.test(name)?name.substring(0,name.indexOf('?')).concat(name.substr(name.indexOf('?')).replace(/\d+$/g,Date.now())):name.concat('?v='+Date.now());	
+	}	
+};
+
+window.ModeLoad.init(['common'],function(M){
+	M.browser.touch&&(document.body.addEventListener('touchstart',function(){})); 
+	M.ui.loadImage.init({
+		pic:['base/piel.gif','base/load.png'],
+		onComplete:function(that){
+			delete window.ModeLoad;
+			M.use.init([M.getNormalPath('page/mobile/'+RES_JS+'?v='+M.now(),2)]);
+		}
+	},this);
+});

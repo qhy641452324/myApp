@@ -1,0 +1,96 @@
+<ion-view view-title="Home">
+  <ion-header-bar align-title="left" class="search home">
+    <div class="header-feature" on-tap="home.BarcodeScanner()">
+      <!--href="mobile_farm_game/game_enter.html"-->
+      <a class="button button-icon icon iconfont icon-saoyisao" ></a><br />
+      <span>扫一扫</span>
+    </div>
+    <label class="item item-input placeholder-icon" ui-sref="tab.search">
+      <i class="icon iconfont ion-ios-search-strong"></i>
+      <span>输入商品名称</span>
+    </label>
+    <div class="header-feature" ui-sref="tab.messageCenter">
+      <a class="button button-icon icon iconfont icon-xiaoxi"></a><br />
+      <span>消息</span>
+    </div>
+  </ion-header-bar>
+  <ion-content scroll="true" has-bouncing="true" class="style-grey">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="home.refresh()" ></ion-refresher>
+    <ion-slide-box class="style-white index-slide" auto-play="true" does-continue="true" slide-interval="5000">
+      <ion-slide ng-repeat="item in home.ads" class="home-slide">
+        <img ng-src="{{::item.advertImgUrl}}" dir-lazy-image/>
+      </ion-slide>
+    </ion-slide-box>
+    <div class="row row1">
+      <a class="tab-item-definded pull-left col col-20 text-center" dir-go-state="{{::item.goState}}" ng-repeat="item in ::home.menuRow1" dir-tap-action="{{::item.tapAction}}">
+        <svg class="icon shake" aria-hidden="true" ng-class="{true:'shake-rotate',false:''}[$root.startUp]">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{::item.code}}"></use>
+        </svg>
+        <span class="tab-title">{{::item.title}}</span>
+      </a>
+    </div>
+    <div class="row row2">
+      <a class="tab-item-definded pull-left col col-20 text-center" ng-repeat="item in ::home.menuRow2" dir-go-state="{{::item.goState}}">
+        <svg class="icon shake" aria-hidden="true" ng-class="{true:'shake-rotate',false:''}[$root.startUp]">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{::item.code}}"></use>
+        </svg>
+        <span class="tab-title">{{::item.title}}</span>
+      </a>
+    </div>
+    <div class="index-commnon-module" ng-repeat="section in home.sectionsData |filter:{sectionUse:3}" >
+      <div class="row row-60">
+        <span class="col col-25"><i class="mdash first"></i></span>
+        <span class="col col-min"><i class="diams icon iconfont icon-lingxing"></i></span>
+        <span class="col col-50 module-title">{{::section.sectionTitle}}</span>
+        <span class="col col-min"><i class="diams icon iconfont icon-lingxing"></i></span>
+        <span class="col col-25"><i class="mdash last"></i></span>
+      </div>
+      <h4 class="responsive-h4 text-center title-describe">{{::section.sectionSubtitle}}</h4>
+      <div class="ads-image" ng-if="::!!section.isTimeNeed">
+        <img ng-src="{{::section.sectionImgUrl}}" dir-lazy-image/>
+      </div>
+      <div ng-if="::!!!section.isTimeNeed" class="left-time-grab">
+        <dir-time-counter data-bind-time="{{home.timeMill}}" data-has-calculate>仅剩</dir-time-counter>
+      </div>
+      <div ng-switch="section.imgType">
+        <div ng-switch-when="0">
+          <a class="item item-thumbnail-left item-food margin-justify animate-list" ng-repeat="food in ::section.sectionTemplateDetailList" dir-go-detail >
+            <div class="image-header">
+              <div class="image-list">
+                <img ng-src="{{::food.sectionDetailImgUrl}}" dir-lazy-image>
+              </div>
+            </div>
+            <div class="text-header">
+              <h2 class="responsive-h2">{{::food.commodityName }}</h2>
+              <h3 class="responsive-h3">{{::food.commodityRemark ||'暂无介绍'}}</h3>
+              <h4 class="responsive-h4">{{::food.saleDescribe}}</h4>
+              <b class="responsive-h1" dir-price-to-fixed="{{::food.standardRetailPrice}}"></b>
+            </div>
+            <img src="img/add.png" dir-add-to-basket='home' unit-price-str='scope.food.standardRetailPrice' 
+              id-commodity-str='scope.food.idCommodity' image-src-str='imgElement.src'></img>
+          </a>          
+        </div>
+        <div ng-switch-when="1">
+          <div class="carousel-floor">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <ion-slides options="home.sliderOptions" slider="data.slider" show-pager="home.sliderOptions.showPager">
+                  <ion-slide-page ng-repeat="food in ::section.sectionTemplateDetailList">
+                    <div class="image-header">
+                      <img ng-src="{{::food.sectionDetailImgUrl}}" dir-lazy-image/>
+                    </div>
+                    <div dir-go-detail>
+                      <h2 class="responsive-h2 ellipsis" ng-bind="::food.commodityName"></h2>
+                      <h4 class="responsive-h5" dir-go-detail>{{::food.saleDescribe}}</h4>
+                      <b class="responsive-h0" dir-decimal-price data-decimal="{{::food.priceIntDecimal}}" original-price="food.standardRetailPrice" scope-name="food">{{::food.priceInt}}</b>
+                    </div>
+                  </ion-slide-page>
+                </ion-slides>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-view view-title="家乐宝" class="bar-light">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">地址管理</h1>
+	</ion-header-bar>
+	<ion-content class="bgColor">
+		<ul class="list">
+			<li class="item addManContent" ng-repeat="address in userAddList">
+				<div class="addManTopItem">
+					<p class="userMes"><span ng-modal="receiveName">{{address.receiveName}}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span ng-modal="phoneUser">{{address.phoneUser}}</span></p>
+					<p style="margin-top:1%;"><span class="addressTypeStr">[{{address.addTypeStr}}]</span><span class="addressStr">{{address.addDesc}}</span></p>
+				</div>
+				<div class="addManbotItem">
+					<label class="checkbox addIoc-pull-left">
+             			<input type="radio" ng-model="addressManagement.defaultState" value="{{$index}}">
+            		</label>
+					<span class="isdefault">{{address.defaultStateStr}}</span>
+					<div class="button button-small editBut" ng-click="toEditAddrMes(address.receiveName,address.phoneUser)">编辑</div>
+					<div class="button button-small detelBut" ng-click="isDelete(address.idUserAddrMgr)">删除</div>
+				</div>
+			</li>
+		</ul>
+	</ion-content>
+	<ion-footer-bar class="addressManagementFooter">
+		<h1 ng-click="getNewAddrMes()">+新增收货地址</h1>
+	</ion-footer-bar>
+</ion-view>

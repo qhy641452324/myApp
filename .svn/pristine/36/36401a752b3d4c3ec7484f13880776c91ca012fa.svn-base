@@ -1,0 +1,46 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">用户反馈</h1>
+		<button class="button" style="border:0;" ui-sref="tab.feedbackRecord">反馈记录</button>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<textarea class="userFeedbacktextarea" name="textarea" placeholder="请告诉我们的不足：)"></textarea>
+		<div class="list">
+			<label class="item item-icon-right item-padding-public">
+				菜品不新鲜？
+	            <label class="checkbox user-address pull-right">
+	              <input type="checkbox"/>
+	            </label>
+			</label>
+			<label class="item item-icon-right item-padding-public">
+				没有送货上门？
+	            <label class="checkbox user-address pull-right">
+	              <input type="checkbox"/>
+	            </label>
+			</label>
+			<label class="item item-icon-right item-padding-public">
+				菜品价格偏贵？
+	            <label class="checkbox user-address pull-right">
+	              <input type="checkbox"/>
+	            </label>
+			</label>
+			<label class="item item-icon-right item-padding-public">
+				客户端不好用？
+	            <label class="checkbox user-address pull-right">
+	              <input type="checkbox"/>
+	            </label>
+			</label>
+			<label class="item item-icon-right item-padding-public">
+				配送超时？
+	            <label class="checkbox user-address pull-right">
+	              <input type="checkbox" ng-model="basket.homeMoney" />
+	            </label>
+			</label>
+
+		</div>
+	</ion-content>
+	<ion-footer-bar class="addressManagementFooter">
+		<h1 ng-click="sumitUserFeedback()">提交</h1>
+	</ion-footer-bar>
+</ion-view>

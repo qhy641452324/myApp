@@ -1,0 +1,73 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.telerik.plugins.nativepagetransitions": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-hot-code-push-plugin": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-appminimize": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-image-picker": {
+            "PHOTO_LIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-wechat": {
+            "WECHATAPPID": "wxc410fe15e9727678",
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-alipay-v2": {
+            "APP_ID": "2017063007608475",
+            "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        },
+        "cordova-plugin-transparent-status-bar": {
+            "PACKAGE_NAME": "com.jialebao.view"
+        }
+    }
+}

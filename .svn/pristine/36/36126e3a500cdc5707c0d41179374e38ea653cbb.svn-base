@@ -1,0 +1,27 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">开票记录</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<ul>
+			<li class="invoiceHistoryItem" ng-repeat="invoiceHistory in userReceiptList">
+				<div class="item itemTop">
+					<span>{{invoiceHistory.applyTimeStr}}</span>
+					<button ng-click="editInvoice(invoiceHistory.idReceipt)">修改</button>
+					<button ng-click="cancelInvoice(invoiceHistory.idReceipt)">取消</button>
+				</div>
+				<ul class="contentList">
+					<li>开票金额<span>{{invoiceHistory.receiptPrice}}</span></li>
+					<li>发票抬头<span>{{invoiceHistory.receiptTitle}}</span></li>
+					<li>开票类型<span>{{invoiceHistory.receiptTypeStr}}</span></li>
+					<li>开票内容<span>{{invoiceHistory.receiptContentStr}}</span></li>
+					<li>地址<span style="margin-left:14%;">{{invoiceHistory.receiptAddr}}</span></li>
+				</ul>
+				<div class="receipt-tag triangle1" ng-class="{'0':'green-tag','1':'red-tag','2':'gray-tag'}[invoiceHistory.receiptState]"></div>
+				<div class="receipt-tag triangle2"></div>
+				<div class="receipt-tag-words ">{{invoiceHistory.receiptStateStr}}</div>
+			</li>
+		</ul>
+	</ion-content>
+</ion-view>

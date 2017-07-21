@@ -1,0 +1,190 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>家乐宝-比布农场</title>
+<meta name="author" content="家乐宝 UED Team" />
+<meta name="keywords" content="家乐宝" />
+<meta name="description" content="家乐宝" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="x-rim-auto-match" content="none">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" type="text/css" href="res/css/base.css" />
+<link rel="stylesheet" type="text/css" href="res/css/main.css" />
+<script type="text/javascript" src="http://api.youziku.com/webfont/FastJS/yzk_E6D290DDC641F277?time=1001"></script>
+</head>
+
+<body>
+
+<div class="ui-mode-container" id="mode">
+
+	<!-- 主界面 -->
+	<div class="ui-mode-box ui-mode-main hide" id="mt-mode-main">
+    	<div class="ui-head-name" id="head_name">
+        	<img data-src="m4.png" class="width-auto mt-mode-load" />
+            <span class="WordArt"><i id="name">-</i>农庄</span>
+        </div>
+        <img data-src="m2.png" class="ui-head-coin mt-mode-load" id="mt-wallet-button" />
+        <img data-src="m1.png" class="ui-head-ad mt-mode-load" />
+        <img data-src="m3.png" class="ui-head-link mt-mode-load" id="share" />
+        <div class="ui-test">
+        <div class="ui-share-select">
+        	<img data-src="m11.png" style="height:90px;" class="width-auto mt-mode-load" />
+            <div class="ui-share-list WordArt">
+            	<a id="ui_share_friend">朋友圈</a>
+            	<a id="ui_share_boy">男生版</a>
+            	<a id="ui_share_girl">女生版</a>
+            </div>
+        </div>
+        <img data-src="explain.png" class="ui-head-explain mt-mode-load" id="explain" />
+        </div>
+        <div class="ui-main-body mt-scroll-container y">
+            <div class="mt-scroll-main mt-scroll-ani">
+                <div class="ui-mode-box mt-scroll-body" id="list">
+                	<img src="res/images/base/load.png" class="mt-loading-icon mt-rotate-load"/> 
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 下线客户信息 -->
+    <div class="ui-mode-box ui-mode-second" id="mt-mode-second">
+        <div class="ui-mode-box ui-second-container" id="_second">
+        	<div class="ui-second-content">
+                <img data-src="m6.png" class="ui-second-back mt-mode-load" />
+                <div class="ui-second-avatar" id="avatar"></div>
+                <div class="ui-second-info WordArt">
+                    <p class="">客户名：<i id="farm_contact_user">-</i></p>
+                    <p class="">菜名：<i id="farm_img_name">-</i></p>
+                    <p class="">种植时间：<i id="farm_register_time">-</i></p>
+                    <p class="">总贡献：<i id="farm_all_score">-</i>家元</p>
+                    <p class="">已收割：<i id="farm_harvest_score">-</i>家元</p>
+                </div>
+                <div class="ui-avatar-container" id="mt_avatar">
+                    <p class="WordArt">点击下列头像，可更换客户当前头像和菜名</p>
+                    <div class="mt-scroll-avatar y" id="_avatar">
+                        <div class="mt-scroll-main">
+                            <div class="mt-scroll-body">
+                                <ul id="avatar_list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 钱包信息 -->
+    <div class="ui-mode-box mt-public-mode ui-mode-wallet hide" id="mt-mode-wallet">
+    	<div class="ui-wallet-container">
+            <img data-src="m7.png" class="width-auto mt-mode-load" />
+            <img data-src="m13.png" class="ui-mode-close mt-mode-load" />
+            <div class="ui-mode-box ui-wallet-content">
+                <img data-src="m8.png" class="ui-wallet-head mt-mode-load" />
+                <div class="ui-wallet-info WordArt">
+                    <div class="">农庄名：<span><i id="farmName">-</i><input type="text" class="hide" id="farm_name_value" maxlength="4"></span>农庄<img data-src="m9.png" class="ui-wallet-edit mt-mode-load" /></div>
+                    <div class="">创建时间：<i id="registerTime">-</i></div>
+                    <div class="">总收益：<i id="farm_all_wallet">-</i>家元</div>
+                    <div class="">已收割：<i id="farm_harvest_wallet">-</i>家元</div>
+                    <div class="">未收割：<i id="farm_unharvest_wallet">-</i>家元</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      <!-- 帮助信息 -->
+    <div class="ui-mode-box mt-public-mode ui-mode-explain hide" id="mt-mode-explain">
+    	<div class="ui-explain-container">
+            <img data-src="m7.png" class="width-auto mt-mode-load" />
+            <img data-src="m13.png" class="ui-mode-close mt-mode-load" />
+            <div class="ui-mode-box ui-explain-content">
+                <div class="ui-explain-info WordArt">
+                  <h3>游戏帮助:</h3>
+									<p>1.分享链接到朋友圈，一旦新用户关注， 您的比布农场将增加一颗菜</p>
+									<p>2.点击小菜，即可进行收割，收割后，家元到账，可以直接购物</p>
+									<p>3.您的朋友购物成功后，您的农庄将继续得到菜，收割后可到账并购物</p>
+									<p>4.目前推荐好友可获得0.5家元，好友有效购物后，订单金额的1%可返到您账户</p>
+									<p>5.分享越多、收益越多！对方买单越多，收益越多！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 收割信息 -->
+    <!-- <div class="ui-mode-box mt-public-mode ui-mode-upline hide" id="mt-mode-upline">
+    	<div class="ui-wallet-container">
+        	<img data-src="m7.png" class="width-auto mt-mode-load" />
+            <img data-src="m13.png" class="ui-mode-close mt-mode-load" />
+            <div class="ui-mode-box ui-upline-content">
+            	<img id="upline" class="ui-upline-head" />
+                <div class="ui-upline-text WordArt"><i id="downlineHarvestScoreSum">-</i>家元</div>
+                <img data-src="m10.png" class="ui-upline-knife mt-mode-load" id="_knife_" />
+                <div class="mt-upline-container y" id="_upline">
+                    <div class="mt-scroll-main">
+                        <div class="mt-scroll-body" id="upline-list">
+                            <img src="res/images/base/load.png" class="mt-loading-icon mt-rotate-load"/> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="ui-mode-box mt-public-mode ui-mode-upline hide" id="mt-mode-upline">
+    	<div class="ui-wallet-container">
+        	<img data-src="m7.png" class="width-auto mt-mode-load" />
+            <img data-src="m13.png" class="ui-mode-close mt-mode-load" />
+            <div class="ui-mode-box ui-upline-content">
+            	<img id="upline" class="ui-upline-head" style="display:none;"/>
+            	  <div class="ui-upline-text WordArt">客户名：<i id="downline_harvest_user_name">-</i></div>
+                <div class="ui-upline-text WordArt">时&nbsp;&nbsp;间：<i id="downline_harvest_time">-</i></div>
+                <div class="ui-upline-text WordArt">金&nbsp;&nbsp;额：<i id="downlineHarvestScoreSum">-</i>家元</div>
+                <img data-src="m10.png" class="ui-upline-knife mt-mode-load" id="_knife_" />
+                <div class="mt-upline-container y" id="_upline">
+                    <div class="mt-scroll-main">
+                        <div class="mt-scroll-body" id="upline-list">
+                            <img src="res/images/base/load.png" class="mt-loading-icon mt-rotate-load"/> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui-mode-loading hide" id="loading">
+	<p class="t1 WordArt">比布农场正在徐徐开启，目前进度<i id="percent">0</i>%，请稍后</p>
+    <p class="t2">
+    	<span class="m1 current">●</span>
+        <span class="m2">●</span>
+        <span class="m3">●</span>
+        <span class="m4">●</span>
+        <span class="m5">●</span>
+        <span class="m6">●</span>
+    </p>
+</div>
+
+<!-- <audio loop id="mt_background_music" class="hide"></audio>
+<audio id="mt_button_music" class="hide"></audio> -->
+
+<script>
+(function(image){
+	image.src='res/images/base/load.png';	
+	image.id='mt-loading-rotate';
+	image.className='mt-loading-icon mt-rotate-load';
+	image.onload=function(){
+		document.body.appendChild(this);	
+	};
+})(new Image());
+</script>
+<script type="text/javascript" src="res/js/common/jweixin-1.0.0.js"></script>
+<script type="text/javascript">var RES_JS='fx.index.js?v=20161020';</script> 
+<script type="text/javascript" src="res/js/core/require.js" data-main="res/js/config.js?v=20161020"></script>
+<script type="text/javascript"> 
+	$youziku.load(".WordArt", "ebc113516546462fab00dd5d14659e18", "minijianshaoer"); 
+	$youziku.draw();
+</script>
+</body>
+</html>

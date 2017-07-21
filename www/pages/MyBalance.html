@@ -1,0 +1,79 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">我的余额</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<div class="myBalanceTop">
+			<img src="img/phonebg.jpg" />
+			<div class="myBalanceTopTitle">
+				<p class="text">我的余额（元）</p>
+				<p class="num">478.00</p>
+			</div>
+			<div class="row myBalanceTopContent">
+				<div class="col" ui-sref="tab.accountBalance">
+					<p class="num">167.00</p>
+					<p class="text">账户余额(元)</p>
+				</div>
+				<div class="col" ui-sref="tab.jiaYuanBalance">
+					<p class="num">211.00</p>
+					<p class="text">家元余额(元)</p>
+				</div>
+				<div class="col" style="border:0;">
+					<p class="num">100.00</p>
+					<p class="text">合作卡余额(元)</p>
+				</div>
+			</div>
+		</div>
+		<div class="myBalanceList">
+			<a class="item itemTitle">
+				账户余额充值
+			</a>
+			<a class="item item-icon-right" ui-sref="tab.weChatPay">
+				<img src="img/weixin.png" />
+				<span>微信充值</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+			<a class="item  item-icon-right" ui-sref="tab.alipay">
+				<img src="img/zhifubao.png" />
+				<span>支付宝充值</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+		</div>
+		<div class="myBalanceList">
+			<a class="item itemTitle">
+				家元余额充值
+			</a>
+			<a class="item item-icon-right" ui-sref="tab.eleJiaYuan">
+				<img src="img/dianzika.png" />
+				<span>电子家元卡购买</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+			<a class="item item-icon-right" ng-click="JiayuanRecharge()">
+				<img src="img/jiayuanka.png" />
+				<span>家元卡充值</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+		</div>
+		<div class="myBalanceList">
+			<a class="item itemTitle">
+				合作卡余额充值
+			</a>
+			<a class="item item-icon-right" ng-click="cooperationRecharge()">
+				<img src="img/hezuoka.png" />
+				<span>合作卡充值</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+		</div>
+		<div class="myBalanceList">
+			<a class="item itemTitle">
+				其他充值
+			</a>
+			<a class="item item-icon-right" href="#">
+				<img src="img/erweima.png" />
+				<span>二维码充值</span>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

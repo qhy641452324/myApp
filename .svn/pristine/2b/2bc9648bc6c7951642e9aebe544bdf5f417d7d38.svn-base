@@ -1,0 +1,17 @@
+<ion-view view-title="家乐宝" class="bar-light">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">消息中心</h1>
+	</ion-header-bar>
+	<ion-content class="content">
+		<div class="list messageCenterContent">
+			<a class="item item-avatar" ng-repeat="messageItem in messageList" ng-click="goState(messageItem.idMessageType)">
+				<img ng-src="{{MessageImg(messageItem.idMessageType)}}">
+				<span ng-class="{true: 'unRead', false: ''}[isunRead(messageItem.idMessafeStatus)]"></span>
+				<h2  ng-bind="MessageType(messageItem.idMessageType)"></h2>
+				<p>{{messageItem.messageTitle}}</p>
+				<span class="time">{{messageItem.insertTime}}</span>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

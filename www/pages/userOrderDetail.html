@@ -1,0 +1,97 @@
+<ion-view view-title="订单详情" class="style-grey" cache-view="false">
+  <ion-header-bar class="bar-light bar-border">
+    <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()" ></button>
+    <h1 class="title">订单详情</h1>
+  </ion-header-bar>
+  <ion-content scroll="true" has-bouncing="true">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="orderDetail.initPage()" ></ion-refresher>
+    <div class="clearfix fade-show" ng-show="pageReady">
+      <div class="style-white user-order main-subject">
+        <h3 class="item-header user-order">
+          <span class="responsive-h2" >商品信息</span>          
+        </h3>
+        <div class="item-container user-order">
+          <div class="margin-l-container user-order no-distance-top">
+            <ul>
+              <li class="user-order goods-item" ng-repeat="food in ::orderDetail.orderDetail">
+                <div class="avatar user-order">
+                  <img ng-src="{{::food.commodityImage}}" />
+                </div>
+                <div class="goods-text-container user-order">
+                  <h2 class="responsive-h2">{{::food.commodityName}}</h2>
+                  <h3 class="responsive-h3">{{::food.commodityRemark||"暂无描述"}}</h3>
+                  <div class="row-line user-order">
+                    <div class="w-50">规格：{{::food.saleDescribe}}</div>
+                    <div class="w-50">数量：{{::food.orderNumber}}份</div>
+                  </div>
+                  <div class="row-line user-order">
+                    <div class="w-50 color-assertive">单价： <span class="price" dir-price-to-fixed="{{::food.unitPrice}}"></span></div>
+                    <div class="w-50">积分：{{::food.unitPrice}}分</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="user-order fully-justified">
+              <li><span>订单号</span><span>{{::orderDetail.idOrder}}</span></li>
+              <li><span>卡券抵扣</span><span dir-price-to-fixed="0" class="price"></span></li>
+              <li><span>赠送积分</span><span dir-price-to-fixed="{{::orderDetail.allData.consumeScore}}"></span></li>
+              <li><span>订单类型</span><span><span ng-bind="::orderDetail.orderTypeCH"></span><span>{{::orderDetail.allData.send_user.idUser&&("（"+orderDetail.allData.send_user.contactUser+"赠送）")}}</span></span></li>
+              <li><span>商品总金额</span><span dir-price-to-fixed="{{::orderDetail.orderRecord.totalMoney}}" class="price color-assertive"></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="style-white user-order main-subject">
+        <h3 class="item-header user-order">
+          <span class="responsive-h2" >收货信息</span>
+          <button class="button button-outline button-assertive" on-tap="orderDetail.editReceivingInfo()" ng-if="orderDetail.shipState!=4">修改</button>
+        </h3>
+        <div class="margin-l-container user-order no-distance-top">
+          <div class="item-container user-order transport-info">
+            <div class="user-order transport-info-item">
+              <h3 class="responsive-h3">送达时间</h3>
+              <p>{{::orderDetail.requireTimeCH}}(前后30分钟)</p>
+            </div>
+            <div class="user-order transport-info-item">
+              <h3 class="responsive-h3">收货地址</h3>
+              <p>
+                <span>{{::orderDetail.orderRecord.receiveUser}}</span><span>&nbsp;&nbsp;&nbsp;&nbsp;{{::orderDetail.orderRecord.receivePhone}}</span><br />
+                <span class="color-assertive">{{::orderDetail.allData.userAddr.userAddrMgr.selectedAddressType}}</span>{{::orderDetail.orderRecord.receivePlace}}
+              </p>
+            </div>
+          </div>        
+        </div>
+      </div>
+      <div class="style-white user-order main-subject">
+        <h3 class="item-header user-order">
+          <span class="responsive-h2" >配送信息</span>
+        </h3>
+        <div class="margin-l-container user-order no-distance-top">
+          <div class="item-container user-order transport-info">
+            <div class="user-order transport-info-item">
+              <h3 class="responsive-h3">送货区</h3>
+              <p>{{::orderDetail.allData.sender_user.userName}}</p>
+            </div>
+            <div class="user-order transport-info-item">
+              <h3 class="responsive-h3">下单时间</h3>
+              <p>{{::orderDetail.orderTimeCH}}</p>
+            </div>
+            <div class="user-order transport-info-item">
+              <h3 class="responsive-h3">送货宝哥</h3>
+              <p>{{::orderDetail.orderRecord.deliveryName}}</p>
+            </div>
+            <div class="user-order transport-info-item">
+              <h3 class="responsive-h3">宝哥电话</h3>
+              <p class="color-freedom">{{::orderDetail.orderRecord.deliveryPhone}}</p>
+            </div>          
+          </div>        
+        </div>
+      </div>          
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bar-light bar-border user-order fade-show"  ng-show="pageReady">
+    <div class="w-40 user-order">合计：<span  class="price color-assertive" dir-price-to-fixed="{{::orderDetail.orderRecord.totalMoney}}"></span></div>
+    <button class="w-30 user-order button button-assertive" ng-disabled="!(orderDetail.orderTypeCH==='普通')||orderDetail.shipState==4" on-tap="orderDetail.cancelOrder($event,orderDetail.virtualOrder)">取消订单</button>
+    <button class="w-30 user-order button button-assertive" ng-disabled="!(orderDetail.orderTypeCH==='普通')||orderDetail.shipState==4" on-tap="orderDetail.changeOrder($event,orderDetail.virtualOrder)">修改订单</button>
+  </ion-footer-bar>  
+</ion-view>

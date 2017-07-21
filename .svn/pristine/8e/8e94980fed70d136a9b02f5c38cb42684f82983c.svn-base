@@ -1,0 +1,6 @@
+<ion-view>
+	<ion-header-bar class="bar-light">
+			<button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+			<p class="title">礼包详情</p>
+		</ion-header-bar>
+</ion-view>

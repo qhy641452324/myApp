@@ -1,0 +1,130 @@
+<ion-view view-title="菜篮子" cache-view="false" class="basketBody">
+  <ion-header-bar class="bar-light has-border">
+    <h1 class="title">菜篮子</h1>
+  </ion-header-bar>
+  <ion-content scroll="true" has-bouncing="true" class="scroll-full" ng-class="{true: 'style-grey', false: 'style-white'}[!!$root.orderId]">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="basket.formDataInit()" ></ion-refresher>
+    <div ng-show="basket.pageReady&&$root.orderId" class="clearfix fade-show ng-hide">
+      <div class="card ui-cart-group user-order">
+        <div class="item row cart-complex" on-tap="basket.selectAnAddress();">
+          <div class="col col-20">
+            <i class="icon ion-location"></i>
+            <span class="responsive-h3 text-after-icon">收菜地址</span>
+          </div>
+          <div class="col col-70">
+            <h3 class="as-normal-span responsive-h3 multiple">{{userAddr.userAddrMgr.receiveName}}</h3>&nbsp;&nbsp;
+            <h3 class="as-normal-span responsive-h3 multiple">{{userAddr.userAddrMgr.phoneUser}}</h3><br />
+            <p class="responsive-h3"><span class="color-assertive">{{userAddr.userAddrMgr.selectedAddressType}}</span>{{userAddr.userAddrMgr.addDesc}}</p>
+          </div>
+          <div class="col col-10">
+            <i class="icon ion-chevron-right"></i>
+          </div>
+        </div>
+        <div class="item row cart-complex" dir-uncorrelated-picker data-target-id="receiveTimeOnBasketPage" data-picker-day="{{::displayedTimeStrList}}" data-bind-after-or-mor="afterOrMor" data-bind-recent-time="recentTime" data-bind-time-str="requiredTimeStr" data-bind-submit-time="downToCtrlHierarchy.submitTimeArray" data-bind-year-index="yearIndex">
+          <div class="col col-20">
+            <span class="responsive-h3">收菜时间</span>
+          </div>
+          <div class="col col-70">
+            <p class="responsive-h3" ng-bind="requiredTimeStr"></p>
+          </div>
+          <div class="col col-10">
+            <i class="icon ion-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+      <div class="card ui-cart-group">
+        <div class="item row cart-complex">
+          <div class="col col-20">
+            <span class="responsive-h3">优惠券</span>
+          </div>
+          <div class="col col-70">
+            <p class="responsive-h3" ng-bind="basket.tickTextDescriptionText"></p>
+          </div>
+          <div class="col col-10">
+            <i class="icon ion-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+      <div class="card ui-cart-group">
+        <form name="basketCartGroup">
+          <ion-list>
+            <ion-item class="item item-thumbnail-left item-remove-animate" ng-repeat="food in basket.orderDetail| orderBy:$index:true track by food.idCommodity  ">
+              <img class="commodityImage" ng-src="{{::food.commodityImage}}">
+              <div class="w-50 commodity">
+                <h2 class="responsive-h2">{{::food.commodityName}}</h2>
+                <div class="flex-price">
+                  <span class="responsive-h1" dir-price-to-fixed="{{::food.unitPrice}}"></span>&nbsp;&nbsp;
+                  <span class="responsive-h3">{{::food.saleDescribe}}</span>
+                </div>
+              </div>
+              <div class="button-group cart-complex">
+                <span class="button-static ion-ios-minus-outline color-assertive" dir-sub-from-basket='basket' unit-price-str='scope.food.unitPrice' unit-number-str='scope.food.orderNumber' id-commodity-str='scope.food.idCommodity' basket-list-array='scope.basket.orderDetail'></span>
+                <input class="number-binding" ng-model="food.orderNumber" type="number"  dir-limit-to="3" dir-change-food-order-number name="{{::'basketCart'+food.idCommodity}}" />
+                <!--<span class="number-binding"></span>-->
+                <span class="button-static ion-plus-circled color-assertive" dir-add-to-basket='basket' unit-price-str='scope.food.unitPrice' unit-number-str='scope.food.orderNumber' id-commodity-str='scope.food.idCommodity'></span>
+              </div>
+              <ion-option-button class="button-assertive" on-tap="basket.removeFromFoodList(food);">删除</ion-option-button>
+            </ion-item>
+          </ion-list>
+        </form>
+      </div>
+      <div class="card ui-cart-group">
+        <div class="myBalanceList user-order">
+          <label class="item item-icon-right" on-tap="basket.checkItem('homeMoney','dianxinPay')">
+            <img src="img/jiayuanka.png"/><span>家元支付<span dir-price-to-fixed="{{basket.consumeScoreCost}}"></span></span><span>，余额<span dir-price-to-fixed="{{basket.consumeScore}}"></span></span>
+            <label class="checkbox user-address pull-right">
+              <input type="checkbox" ng-model="basket.homeMoney" />
+            </label>
+          </label>
+          <label class="item item-icon-right" on-tap="basket.checkItem('ownMoney','dianxinPay')">
+            <img src="img/zhanghuyue.png"/><span>账户余额支付<span dir-price-to-fixed="{{basket.priceCost}}"></span></span><span>，余额<span dir-price-to-fixed="{{basket.price}}"></span></span>
+            <label class="checkbox user-address pull-right">
+              <input type="checkbox"  ng-model="basket.ownMoney"/>
+            </label>
+          </label>
+          <label class="item item-icon-right" on-tap="basket.checkItem('weichatPay','dianxinPay','aliPay')">
+            <img src="img/weixin.png"/><span>微信支付<span dir-price-to-fixed="{{basket.wechatCost}}"></span></span>
+            <label class="checkbox user-address pull-right">
+              <input type="checkbox" ng-model="basket.weichatPay"/>
+            </label>
+          </label>
+          <label class="item item-icon-right" on-tap="basket.checkItem('aliPay','dianxinPay','weichatPay')">
+            <img src="img/zhifubao.png"/><span>支付宝支付<span dir-price-to-fixed="{{basket.aliCost}}"></span></span> 
+            <label class="checkbox user-address pull-right">
+              <input type="checkbox" ng-model="basket.aliPay" />
+            </label>
+          </label>
+          <label class="item text-center" ng-hide="::basket.morePayWays" on-tap="basket.morePayWays=true">
+            <span>查看更多支付方式<i class="icon ion-chevron-down"></i></span>
+          </label>
+          <div ng-show="::basket.morePayWays" class="additional-pay-ways">
+            <label class="item item-icon-right" on-tap="basket.checkItem('dianxinPay','homeMoney','ownMoney','weichatPay','aliPay')">
+              <img src="img/hezuoka.png"/><span>合作卡支付</span> 
+              <label class="checkbox user-address pull-right">
+                <input type="checkbox" ng-model="basket.dianxinPay"  />
+              </label>
+            </label>            
+          </div>
+        </div>
+      </div>
+      <div class="card ui-cart-group">
+        <h2 class="responsive-h2 note basket-statement">备注（暂不提供二次加工服务）</h2>
+        <textarea ng-model="basket.note"></textarea>
+      </div>
+    </div>
+    <div ng-show="basket.pageReady&&!$root.orderId" class="scroll fade-show  ng-hide">
+      <div class="full-size noNetworkContent">
+        <img src="img/basket_empty.png" />
+        <p>您的菜篮子空空的哦，快去购物吧</p>
+        <button ui-sref="tab.buy">去购物</button>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bar-light has-border basket-statement  fade-show"  ng-show="basket.pageReady&&$root.orderId" >
+    <div class="basket-statement total-statement">
+      <h2 class="responsive-h1">合计：<span class="color-assertive" ng-bind="basket.bindTotalPrice();" ></span></h2>
+      <span class="responsive-h4">优惠：<span>&yen;0.00</span></span>
+    </div>
+    <button class="button button-assertive" on-tap="basket.statements();">结算</button>
+  </ion-footer-bar>
+</ion-view>

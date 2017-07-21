@@ -1,0 +1,21 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">用户反馈</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<ul>
+			<li class="bibuMessageContent" ng-repeat="userFeedbackMessageItem in userFeedbackMessageList">
+				<span class="time">
+					{{userFeedbackMessageItem.insertTimeStr}}
+				</span>
+				<div class="item item-icon-right bibuMessageCard">
+					<h3>用户反馈消息</h3>
+					<p class="text">{{userFeedbackMessageItem.messageTitle}}！</p>
+					<i class="icon ion-ios-arrow-right"></i>
+				</div>
+
+			</li>
+		</ul>
+	</ion-content>
+</ion-view>

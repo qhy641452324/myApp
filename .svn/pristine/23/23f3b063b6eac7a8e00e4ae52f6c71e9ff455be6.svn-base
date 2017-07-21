@@ -1,0 +1,42 @@
+<ion-view view-title="比布优选">
+  <dir-tab-slide-box tab="0" shift-wrp>
+    <ion-header-bar class="bar-light has-border">
+      <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()" ></button>
+      <h1 class="title">比布优选</h1>
+    </ion-header-bar>
+    <div class="bar bar-subheader fade-show  has-border" ng-show="pageReady">
+      <div class="tsb-icons">
+        <div class="tsb-ic-wrp vip-menu">
+          <a href="javascript:;"  ng-repeat="item in ::bibuSLC.menus track by item.idCommodityCategory" >{{::item.commodityCategoryName}}</a>
+        </div>
+      </div>
+    </div>
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" class="tab-menu-slides full-slide grey-slide" bounce="false">
+      <ion-slide  class="content-slide"  ng-repeat="item in ::bibuSLC.menus track by item.idCommodityCategory" dir-on-finish-render>
+        <ion-scroll srcoll="true" overflow-scroll="false" has-bouncing="true"  delegate-handle="{{::'eachFoodContent'+$index}}" >
+          <div ng-if="bibuSLC.slideIndex==$index||(bibuSLC.slideIndex-1)==$index||(bibuSLC.slideIndex+1)==$index">
+            <div class="fade-show" ng-show="pageReady">
+              <ion-refresher pulling-text="下拉刷新" on-refresh="bibuSLC.refresh()" ></ion-refresher>
+              <ion-list class="col-goods-list">
+                <ion-item class="col col-50-max item-thumbnail-left item-food col-goods-list-item" 
+                  ng-repeat="food in bibuSLC.foods[$index] track by food.idCommodity"  dir-go-detail>
+                  <div class="avatar">
+                    <img ng-src="{{::food.commodityImage}}" dir-lazy-image>                  
+                  </div>
+                  <h2 class="responsive-h2">{{::food.commodityName}}</h2>
+                  <b class="responsive-h1" dir-price-to-fixed="{{::food.standardRetailPrice}}"></b> 
+                  <h4 class="responsive-h4">{{::food.saleDescribe}}</h4>
+                  <i class="icon ion-plus-circled" dir-add-to-basket='bibuSelection' 
+                  unit-price-str='scope.food.standardRetailPrice'
+                  unit-number-str='1' id-commodity-str='scope.food.idCommodity' use-simple="1"></i>
+                </ion-item>
+              </ion-list>  
+              <ion-infinite-scroll immediate-check="false" on-infinite="bibuSLC.goodsLoad()" distance="5%"  ng-if="bibuSLC.foods[$index].length&&!bibuSLC.hasToTheEnd">
+              </ion-infinite-scroll>                    
+            </div>
+          </div>
+        </ion-scroll>
+      </ion-slide>
+    </ion-slide-box>
+  </dir-tab-slide-box>
+</ion-view>

@@ -1,0 +1,83 @@
+<ion-view view-title="我家订单"  cache-view="false" >
+  <dir-tab-slide-box tab="0" >
+    <ion-header-bar class="bar-light">
+      <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()" ></button>
+      <h1 class="title">我家订单</h1>
+    </ion-header-bar>
+    <div class="bar bar-subheader has-border user-order">
+      <div class="tsb-icons order-menu">
+        <div class="tsb-ic-wrp">
+          <a href="javascript:;" >未完成</a>
+          <a href="javascript:;" >已完成</a>
+          <a href="javascript:;" >已取消</a>
+        </div>
+      </div>
+    </div>
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" class="tab-menu-slides full-slide grey-slide" bounce="false">
+      <ion-slide  class="content-slide"  ng-repeat="orderGroup in userOrder.orderLists" dir-on-finish-render>
+        <ion-scroll srcoll="true" has-bouncing="true"  delegate-handle="{{::'eachOrderContent'+$index}}" class="user-order">
+          <ion-refresher pulling-text="下拉刷新" on-refresh="userOrder.doRefresh($index)" ng-if="$index==$parent.$parent.$parent.currentSlide"></ion-refresher>
+          <ion-list>
+            <ion-item class="user-order" ng-repeat="order in orderGroup" on-tap="userOrder.orderDetail($event,order)" >
+              <h3 class="item-header user-order">
+                <div class="pull-left">
+                  <span class="order-status user-order"><span class="responsive-h4">订单状态:</span>&nbsp;&nbsp;&nbsp;<span class="responsive-h4 color-assertive"  ng-bind="::userOrder.shipState(order.shipState)"></span></span>
+                </div>
+                <div class="pull-right" ng-if="$parent.$parent.$index==0">
+                  <button class="button button-light" on-tap="userOrder.changeOrder($event,order)">修改订单</button>
+                  <button class="button button-light" on-tap="userOrder.cancelOrder($event,order,orderGroup)">取消订单</button>                  
+                </div>
+              </h3>
+              <div class="item-container user-order">
+                <div class="margin-l-container user-order">
+                  <ul>
+                    <li class="order-entry user-order"><span class="entry-title">订单号&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                      <span class="entry-text">{{::order.idOrder}}</span>
+                    </li>
+                    <li class="order-entry user-order"><span class="entry-title">订单类型</span>
+                      <span class="entry-text">{{::order.orderTypeCH}}</span>
+                    </li>
+                    <li class="order-entry user-order"><span class="entry-title">订单金额</span>
+                      <span class="entry-text color-assertive">&yen;{{::order.totalMoney}}</span>
+                    </li>
+                    <li class="order-entry user-order"><span class="entry-title">下单时间</span>
+                      <span class="entry-text">
+                        {{::(order.orderTimeStruct.year+"-"
+                        +order.orderTimeStruct.month+"-"
+                        +order.orderTimeStruct.date+"\t"
+                        +order.orderTimeStruct.h+":"
+                        +order.orderTimeStruct.m+"\t"
+                        +order.orderTimeStruct.dayCH)}}</span>
+                    </li>
+                    <li class="order-entry user-order"><span class="entry-title">送达时间</span>
+                      <span class="entry-text">
+                        {{::(order.confirmTimeStruct?
+                        (order.confirmTimeStruct.year+"-"
+                        +order.confirmTimeStruct.month+"-"
+                        +order.confirmTimeStruct.date+"\t"
+                        +order.confirmTimeStruct.h+":"
+                        +order.confirmTimeStruct.m+"\t"
+                        +order.confirmTimeStruct.dayCH):
+                        (order.requireTimeStruct.year+"-"
+                        +order.requireTimeStruct.month+"-"
+                        +order.requireTimeStruct.date+"\t"
+                        +order.requireTimeStruct.h+":"
+                        +order.requireTimeStruct.m+"\t"
+                        +order.requireTimeStruct.dayCH+"（前后30分钟）"))}}</span>
+                    </li>
+                    <li class="order-entry user-order"><span class="entry-title">订单商品</span>
+                      <span class="entry-text short">香蕉 &yen;1.8,生菜&yen;1.8,南汇精选马兰头 &yen;1.8</span>
+                      <span class="entry-goods-number">3件</span>
+                    </li>
+                  </ul>
+                </div> 
+              </div>
+            </ion-item>
+          </ion-list>
+          <ion-infinite-scroll immediate-check="false" on-infinite="userOrder.orderData(true)" distance="5%"  ng-if="($index==$parent.$parent.$parent.currentSlide)&&!userOrder.orders[$index].hasToTheEnd">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide>
+    </ion-slide-box>
+  </dir-tab-slide-box>
+</ion-view>

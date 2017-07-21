@@ -1,0 +1,47 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">索要发票</h1>
+		<button class="button" style="border:0;" ui-sref="tab.invoiceHistory">开票记录</button>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content">
+		<div class="askForInvoiceTitle">
+			<p>非家元消费总额：<span>{{askForInvoice.misJiaYuan}}元</span></p>
+			<p>历史开票：<span>{{askForInvoice.invoiceHistory}}元</span></p>
+			<p>可开票金额：<span>{{askForInvoice.leftMoney}}元</span></p>
+		</div>
+		<form name="askForInvoice.askForInvoiceFrom">
+			<ul class="list askForInvoiceContent" style="margin-top:3%;">
+				<li class="item">
+					<span class="input-label">开票金额</span>
+					<input type="text" placeholder="开票金额最多两位小数" ng-model="askForInvoice.invoiceMoney" >
+				</li>
+				<li class="item item-icon-right">
+					<span class="item-title">发票类型</span>
+					<div style="width:70%;float: right;line-height:40px;" ng-model="askForInvoice.invoiceType" name="askForInvoiceInvoiceType" id="multiPickerInputaskForInvoiceinvoiceType" dir-single-picker data-bind-json="invoiceTypeData" >公司</div>
+					<i class="icon ion-ios-arrow-right "></i>
+				</li>
+				<li class="item item-icon-right">
+					<span class="item-title">发票内容</span>
+					<div  style="width:70%;float: right;line-height:40px;" ng-model="askForInvoice.invoiceContent" name="askForInvoiceInvoiceContent" id="multiPickerInputaskForInvoiceinvoiceContent" dir-single-picker data-bind-json="invoiceContentData">食品</div>
+					<i class="icon ion-ios-arrow-right"></i>
+				</li>
+				<li class="item item-icon-right">
+					<span class="input-label ">发票抬头</span>
+					<input type="text" placeholder="请输入公司抬头" ng-model="askForInvoice.invoiceTopCom">
+				</li>
+				<li class="item item-icon-right" style="margin-top:3%;">
+					<span class="item-title">地址</span>
+					<div  style="width:70%;float: right;line-height:40px;" ng-model="askForInvoice.invoiceAddDesc" name="askForInvoiceInvoiceAddDesc" id="multiPickerInputaskForInvoiceinvoiceAddDesc" dir-single-picker data-bind-json="askForInvoice.invoiceAddDescData">111</div>
+					<i class="icon ion-ios-arrow-right"></i>
+				</li>
+			</ul>			
+		</form>
+
+		<button class="button askForInvoiceBut" ng-click="askForInvoice.submitInvoice()">提交</button>
+		<div class="askForInvoiceBot">
+			<p>*1.家元卡部分的发票需要在购买家元卡时申请，不可在线申请；</p>
+			<p>*2.其它线上账户余额支付或充值的部分，可以在线申请发票。</p>
+		</div>
+	</ion-content>
+</ion-view>

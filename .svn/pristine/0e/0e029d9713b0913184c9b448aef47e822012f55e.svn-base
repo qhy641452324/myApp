@@ -1,0 +1,24 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">家元使用规则</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="useRuleContent">
+		<h3>家乐宝商城家元使用规则</h3>
+		<h4 style="margin-top:8%;">1.什么是家元？</h4>
+		<p>家元是家乐宝商城推出的一种1:1兑换使用的虚拟货币。1家元=1元人民币，家乐宝全城通用。</p>
+		<h4 style="margin-top:8%;">2.如何获得家元？</h4>
+		<p>方法1：关注“家乐宝商城”微信公众号，联系客服，看是否有优惠活动，如兑换券等。</p>
+
+		<p>方法2：在微信公众号“家乐宝商城”中点击首页“点击分享”按钮，将分享页面分享到朋友圈或者发送给朋友，每有一位新用户点击分享链接，分享人即获得0.5个家元，多人关注可累计。越分享，越快乐！</p>
+
+		<p>方法3：使用家元卡充值获得家元。</p>
+
+		<p>方法4：通过微信分享或专属二维码邀请小伙伴使用家乐宝，可从小伙伴们的消费中获得1%的返利。</p>
+
+		<p>方法5：通过APP、微信、PC三大平台, 可以在线购买电子家元卡,并充入家乐宝账户。</p>
+		<h4 style="margin-top:8%;">3.家元有什么用处？</h4>
+		<p>1.购物结算时可使用家元进行余额支付；</p>
+		<p>2.适用于家乐宝商城所有产品。</p>
+	</ion-content>
+</ion-view>

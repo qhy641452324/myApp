@@ -1,0 +1,44 @@
+<ion-view view-title="修改收货信息" cache-view="false">
+  <ion-header-bar class="bar-light">
+    <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+    <h1 class="title">修改收货信息</h1>
+  </ion-header-bar>
+  <ion-content scroll="true" has-bouncing="true">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="receivingInfo.refreshPage()" ></ion-refresher>
+    <div class="clearfix fade-show" ng-show="pageReady">
+      <div class="card ui-cart-group user-order">
+        <div class="item row cart-complex" on-tap="receivingInfo.selectAnAddress();">
+          <div class="col col-20">
+            <i class="icon ion-location"></i>
+            <span class="responsive-h3 text-after-icon">收菜地址</span>
+          </div>
+          <div class="col col-70">
+            <h3 class="as-normal-span responsive-h3 multiple">{{userAddr.userAddrMgr.receiveName}}</h3>&nbsp;&nbsp;
+            <h3 class="as-normal-span responsive-h3 multiple">{{userAddr.userAddrMgr.phoneUser}}</h3><br />
+            <p class="responsive-h3"><span class="color-assertive">{{userAddr.userAddrMgr.selectedAddressType}}</span>{{userAddr.userAddrMgr.addDesc}}</p>
+          </div>
+          <div class="col col-10">
+            <i class="icon ion-chevron-right"></i>
+          </div>
+        </div>
+        <div class="item row cart-complex" dir-uncorrelated-picker data-target-id="receiveTimeOnInfoPage" 
+          data-picker-day="{{displayedTimeStrList}}" data-bind-after-or-mor="afterOrMor" 
+          data-bind-recent-time="recentTime" data-bind-time-str="requiredTimeStr"
+           data-bind-submit-time="downToCtrlHierarchy.submitTimeArray" data-bind-year-index="yearIndex">
+          <div class="col col-20">
+            <span class="responsive-h3">收菜时间</span>
+          </div>
+          <div class="col col-70">
+            <p class="responsive-h3" ng-bind="requiredTimeStr"></p>
+          </div>
+          <div class="col col-10">
+            <i class="icon ion-chevron-right"></i>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bar-light  user-order footer-submit fade-show" ng-show="pageReady">
+    <button class="button button-bar button-assertive" ng-click="submitReceivingInfo()">提交</button>
+  </ion-footer-bar>
+</ion-view>

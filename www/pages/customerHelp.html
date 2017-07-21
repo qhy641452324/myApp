@@ -1,0 +1,27 @@
+<ion-view view-title="家乐宝" class="bar-light">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">客服与帮助</h1>
+	</ion-header-bar>
+	<ion-content class="content">
+		<ion-list>
+			<ul class="customerHelpContent"> 
+				<li ng-repeat="group in groups" class="customerHelpContentItem">
+					<ion-item class="item-icon-right itemShow" ng-click="toggleGroup(group)">
+						<div class="item-text-center item-text-wrap">{{group.name}}</div>
+						<i class="icon" ng-class="isGroupShown(group) ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
+					</ion-item>
+					<ion-item class="item-icon-right itemHide" ng-repeat="item in group.childItems" ng-click="toggleSubGroup(item)" ng-show="isGroupShown(group)">
+						<div class="item-text-center item-text-wrap">{{item.childName}}</div>
+					</ion-item>
+				</li>
+			</ul>
+			
+		</ion-list>
+	</ion-content>
+	<ion-footer-bar class="customerPhone">
+	    <a class="button customerPhoneBut" href="tel:021-68580000"><i class="icon ion-ios-telephone"></i>021-68580000</a>
+		<p class="customerPhoneBottom">服务时间：每天7:00-20:00；备用热线：021-68581111</p>
+	</ion-footer-bar>
+	
+</ion-view>

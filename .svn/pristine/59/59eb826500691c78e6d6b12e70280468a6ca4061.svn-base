@@ -1,0 +1,31 @@
+<ion-view view-title="foodDetail" cache-view="false">
+  <dir-tab-slide-box tab="0">
+    <ion-header-bar class="bar-light">
+      <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+      <div class="tsb-icons">
+        <div class="tsb-ic-wrp food-detail">
+          <a href="javascript:;" class="active">商品</a>
+          <a href="javascript:;">详情</a>
+        </div>
+      </div>
+      <button class="button button-icon ion-android-share-alt share-btn-size"></button>
+    </ion-header-bar>
+    <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)" class="full-slide" delegate-handle="detailPageSlide"  bounce="false">
+      <ion-slide class="content-slide" >
+        <ion-scroll delegate-handle="slide1Scroll" bottom-handle="slide1BottomScroll"  srcoll="true" has-bouncing="true" dir-draggable-slide save-instance='1' >
+          <ion-slide-box class="goods-slide" id="food-img-slide" auto-play="false" does-continue="true" stop-propagation='true' delegate-handle="goodsSlide" dir-current-index-listener='slideIndexOfFoodDetail'>
+            <ion-slide ng-repeat="item in groupDetail.imgList" class="food-detail-slide slider-slide-image zoom-slide" dir-should-have-load="{{::item.groupImageUrl}}" ></ion-slide>
+          </ion-slide-box>
+        </ion-scroll>
+      </ion-slide>
+      <ion-slide  class="content-slide image-content">
+        <ion-scroll srcoll="true" has-bouncing="true" > 
+          <img  class="img-text-describe"  ng-src="{{::groupDetail.groupCommodity.fightDescribeImg}}"/>
+        </ion-scroll>
+      </ion-slide>
+    </ion-slide-box>
+  </dir-tab-slide-box>
+  
+  
+  
+</ion-view>

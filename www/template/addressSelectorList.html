@@ -1,0 +1,25 @@
+<ion-modal-view class="modal-actionsheet">
+  <form ng-submit="updateAddressOnlyInView(saveAddrRequest)" name="addressActionSheet">
+    <ion-header-bar class="bar bar-header bar-light">
+      <button class="button button-clear button-stable" >取消</button>
+      <button class="button button-clear button-assertive" type="submit">完成</button>
+    </ion-header-bar>
+    <ion-content>
+      <ul class="list user-address">
+        <li class="item  user-address" ng-repeat="address in ::userAddList track by address.idUserAddrMgr" ng-if="::address.receiveName">
+          <label>
+            <div class="col-most">
+              <div><span>{{::address.receiveName}}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{::address.phoneUser}}</span></div>
+              <div><p class="ellipsis"><span class="color-assertive">{{::address.selectedAddressType}}</span>{{::address.addDesc}}</div>
+            </div>
+            <div class="col-least">
+              <label class="checkbox user-address pull-right">
+                <input type="radio" ng-model="downToCtrlHierarchy.selectedAddressId" name="checkdAddress" value="{{::address.idUserAddrMgr}}" />
+              </label>          
+            </div>            
+          </label>
+        </li>
+      </ul>
+    </ion-content>      
+  </form>  
+</ion-modal-view>

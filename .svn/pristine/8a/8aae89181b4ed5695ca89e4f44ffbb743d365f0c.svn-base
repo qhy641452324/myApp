@@ -1,0 +1,67 @@
+.groupIndex{
+    .item{
+        width: 100%;
+        padding: 0;
+        margin: 10px 0;
+        background: #F5F5F5;
+        border: none;
+        .groupDetail{
+             background: #fff;
+        }
+        img{
+            width: 100%;
+            max-height: 170px;
+        }
+        .title{
+            font-size: 1.1rem;
+        }
+        div{
+            b{
+                font-size: 0.5rem;
+            }
+            .price{
+                font-size: 1.5rem;
+                color: #FE4C40;
+                line-height: 40px;
+                margin-left: 5px;
+            }
+            button{
+                min-height: 28px;
+                line-height: 28px;
+                top: 6px;
+                right: 10px;
+                float: right;
+            }
+        }
+    }
+}
+
+//groupEmpty
+.groupEmpty{
+    width: 80%;
+    margin: 30% auto;
+    img{
+        width: 100%;
+    }
+    p{
+        width: 100%;
+        text-align: center;
+        color: #D1D1D1;
+        font-size: 1rem;
+        margin: 10px 0;
+    }
+    .button.button-positive{
+        margin-top: 50px;
+        background: #fff;
+        border: 1px solid #FE4C40;
+    }
+}
+//groupDetail
+.groupDetail{
+    #food-img-slide{
+        div.slider-slides{
+            width: 100%;
+        }
+    }
+    
+}

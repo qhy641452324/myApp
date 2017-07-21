@@ -1,0 +1,12 @@
+<ion-view view-title="User" hide-nav-bar="true">
+	<ion-header-bar class="bar-light">
+		<button class="button button-icon icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
+		<h1 class="title">关于家乐宝</h1>
+	</ion-header-bar>
+	<ion-content scroll="true" has-bouncing="true" class="content aboutJLB">
+		<img src="../img/guanyu-1.jpg"/>
+		<img src="../img/guanyu-2.jpg"/>
+		<img src="../img/guanyu-3.jpg"/>
+		<img src="../img/guanyu-4.jpg"/>
+	</ion-content>
+</ion-view>
